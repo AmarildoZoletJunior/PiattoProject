@@ -39,33 +39,44 @@ class minhas_receitas extends StatelessWidget {
                 ),
                 child: Center(
                   child: Container(
-                    color: Colors.grey.withOpacity(0.3),
-                    height: 500,
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.3),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    height: 650,
                     width: 400,
-                    child: Column(
-                      children: [
-                        Text("cidsbisbc", style: TextStyle(fontFamily: 'Italiana', fontSize: 30.0),),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 10),
-                          height: 400,
-                          width: 300,
-                            child:
-                              Card(
-
-                                child: ListView.builder(
-                                itemCount: 6,
-                                itemBuilder: (ctx, i) =>card(),
-                                ),
-                              ),
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 20),
+                            child: Text("Minhas Receitas", style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "Italiana",
+                              fontSize: 60,
+                            ),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
-                      ]
+                          Container(
+                            margin: EdgeInsets.only(bottom: 10, top: 20),
+                            height: 450,
+                            width: 300,
+                              child:
+                                Container(
+                                    child: ListView.builder(
+                                      itemCount: 4,
+                                      itemBuilder: (ctx, i) =>card(),
+                                    ),
+                                  ),
+                                ),
+                        ]
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
           ),
-        ),
-    );
+        );
   }
 }
