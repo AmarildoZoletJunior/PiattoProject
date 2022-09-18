@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:piattov2/tela_principal.dart';
 import 'package:piattov2/tela_login.dart';
+import 'favorito.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: tela_login(),
+      home: Favoritos(),
     );
   }
 }
