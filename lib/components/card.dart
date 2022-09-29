@@ -5,48 +5,40 @@ class card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(bottom: 10, top: 30),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-          ),
-          child: ListTile(
-            title: Image(
-              image: AssetImage("Image/PIATTO.png"),
-            ),
-            subtitle: Text('Gareli'),
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              margin: EdgeInsets.only(right: 10),
-              width: 100,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.white),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            margin: EdgeInsets.only(right: 10),
+            width: 100,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.red.shade100),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                ),
-                onPressed: () {},
-                child: Text(
-                  "Editar",
-                  style: TextStyle(color: Colors.black),
                 ),
               ),
+              onPressed: () {},
+              child: const Text(
+                "Editar",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
-            Container(
-              width: 100,
+          ),
+          Container(
+            width: 100,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                  backgroundColor: MaterialStateProperty.all(Colors.red.shade100),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
@@ -54,15 +46,15 @@ class card extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   "Excluir",
                   style: TextStyle(color: Colors.black),
                 ),
               ),
             ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }

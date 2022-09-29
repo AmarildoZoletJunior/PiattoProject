@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:piattov2/tela_principal.dart';
-import 'package:piattov2/tela_login.dart';
-
-import 'minhas_receitas.dart';
+import 'cadastro_receita.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: minhas_receitas(),
+      home: cadastro_receita(),
     );
   }
 }

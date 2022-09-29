@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components/card.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class minhas_receitas extends StatelessWidget {
   const minhas_receitas({Key? key}) : super(key: key);
@@ -50,10 +51,8 @@ class minhas_receitas extends StatelessWidget {
                       margin: EdgeInsets.only(top: 20),
                       child: Text(
                         "Minhas Receitas",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: "Italiana",
-                          fontSize: 60,
+                        style: GoogleFonts.italiana(
+                          textStyle: TextStyle(color: Colors.white, fontSize: 60),
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -64,7 +63,7 @@ class minhas_receitas extends StatelessWidget {
                       width: 300,
                       child: Container(
                         child: ListView.builder(
-                          itemCount: 3,
+                          itemCount: 1,
                           itemBuilder: (ctx, i) => card(),
                         ),
                       ),
