@@ -38,19 +38,48 @@ class cadastro_receita extends StatelessWidget {
               ),
               child: Center(
                 child: Container(
-                decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.3),
-                borderRadius: BorderRadius.all(Radius.circular(20),
-                ),
-              ),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.3),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
                   height: 620,
                   width: 400,
+                  child: Container(
+                    child: ListView(
+                      padding: const EdgeInsets.all(8),
+                      children: <Widget>[
+                        Container(
+                          height: 50,
+                          color: Colors.white,
+                          child: const Center(
+                            child: Icon(Icons.add),
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          color: Colors.amber[500],
+                          child: const Center(
+                            child: Text('Entry B'),
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          color: Colors.amber[100],
+                          child: const Center(
+                            child: Text('Entry C'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
         ),
       ),
-    ),
-    ),
     );
   }
 }
