@@ -50,25 +50,100 @@ class cadastro_receita extends StatelessWidget {
                     child: ListView(
                       padding: const EdgeInsets.all(8),
                       children: <Widget>[
-                        Container(
-                          height: 50,
-                          color: Colors.white,
-                          child: const Center(
-                            child: Icon(Icons.add),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 100,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white),
+                                foregroundColor: MaterialStateProperty.all(
+                                    Colors.red.shade300),
+                                shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10)),
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {},
+                              child: Icon(Icons.add),
+                            ),
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          color: Colors.amber[500],
-                          child: const Center(
-                            child: Text('Entry B'),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 40,
+                            width: 40,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Colors.transparent),
+                                foregroundColor:
+                                    MaterialStateProperty.all(Colors.white),
+                                overlayColor:
+                                    MaterialStateProperty.all(Colors.red),
+                              ),
+                              onPressed: () {},
+                              child: Text('Doce'),
+                            ),
                           ),
                         ),
-                        Container(
-                          height: 50,
-                          color: Colors.amber[100],
-                          child: const Center(
-                            child: Text('Entry C'),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 40,
+                            width: 40,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Colors.transparent),
+                                foregroundColor:
+                                    MaterialStateProperty.all(Colors.white),
+                                overlayColor:
+                                    MaterialStateProperty.all(Colors.red),
+                              ),
+                              onPressed: () {},
+                              child: Text('Salgado'),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            child: Center(
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  fillColor: Colors.grey,
+                                  filled: true,
+                                  border: InputBorder.none,
+                                  hintText: 'Nome da Receita',
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            child: Center(
+                              child: Container(
+                                height: 100,
+                                child: TextField(
+                                  maxLines: 15,
+                                  decoration: InputDecoration(
+                                    fillColor: Colors.grey,
+                                    filled: true,
+                                    border: InputBorder.none,
+                                    hintText: 'Descrição',
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ],
