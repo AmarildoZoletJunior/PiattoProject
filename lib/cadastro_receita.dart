@@ -52,25 +52,22 @@ class cadastro_receita extends StatelessWidget {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 100,
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all(Colors.white),
-                                foregroundColor: MaterialStateProperty.all(
-                                    Colors.red.shade300),
-                                shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10)),
+                          child: Center(
+                            child: Container(
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  enabled: true,
+                                  hintText: "Nome da Receita",
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
-                              onPressed: () {},
-                              child: Icon(Icons.add),
                             ),
                           ),
                         ),
@@ -115,34 +112,58 @@ class cadastro_receita extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            child: Center(
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  fillColor: Colors.grey,
-                                  filled: true,
-                                  border: InputBorder.none,
-                                  hintText: 'Nome da Receita',
-                                ),
+                            height: 40,
+                            width: 40,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Colors.transparent),
+                                foregroundColor:
+                                MaterialStateProperty.all(Colors.white),
                               ),
+                              onPressed: () {},
+                              child: Text('Selecionar Ingredientes'),
                             ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            child: Center(
                               child: Container(
-                                height: 100,
+                                height: 200,
                                 child: TextField(
                                   maxLines: 15,
                                   decoration: InputDecoration(
-                                    fillColor: Colors.grey,
-                                    filled: true,
-                                    border: InputBorder.none,
+                                    enabled: true,
                                     hintText: 'Descrição',
+                                    fillColor: Colors.white,
+                                    filled: true,
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Colors.white,
+                                      ),
+
                                   ),
                                 ),
                               ),
+                            ),
+                          ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 90.0, left: 8, right: 8),
+                          child: Container(
+                            height: 50,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Colors.transparent),
+                                foregroundColor:
+                                    MaterialStateProperty.all(Colors.white),
+                                overlayColor:
+                                    MaterialStateProperty.all(Colors.green),
+                              ),
+                              onPressed: () {},
+                              child: Text('Publicar Receita'),
                             ),
                           ),
                         ),
