@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:piattov2/tela_principal.dart';
-import 'package:piattov2/tela_login.dart';
-import 'favorito.dart';
+import 'package:piattov2/cadastro_receita.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: Favoritos(),
+      title: 'PIATTO',
+      home: cadastro_receita(),
     );
   }
 }
