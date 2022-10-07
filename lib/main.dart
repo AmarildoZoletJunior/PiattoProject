@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:piattov2/cadastro_receita.dart';
+import 'package:piattov2/sobre.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PIATTO',
-      home: cadastro_receita(),
+      home: Sobre(),
     );
   }
 }

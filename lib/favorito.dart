@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'components/menu.dart';
+
 class Favoritos extends StatefulWidget {
   const Favoritos({Key? key}) : super(key: key);
 
@@ -44,40 +46,7 @@ class _FavoritosState extends State<Favoritos> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _opcaoSelecionada,
-        onTap: (opcao) {
-          print('clicou $opcao');
-
-          setState((){
-            _opcaoSelecionada = opcao;
-          });
-        },
-        fixedColor: Colors.amber,
-        items: [
-          BottomNavigationBarItem(
-            label: "Home",
-            icon: Icon(Icons.home),
-          ),
-          BottomNavigationBarItem(
-            label: "Favoritos",
-            icon: Icon(Icons.favorite),
-          ),
-          BottomNavigationBarItem(
-            label: "Adicionar",
-            icon: Icon(Icons.add_box),
-          ),
-          BottomNavigationBarItem(
-            label: "Perfil",
-            icon: Icon(Icons.person),
-          ),
-          BottomNavigationBarItem(
-            label: "Configuração",
-            icon: Icon(Icons.settings),
-          ),
-        ],
-      )
+      bottomNavigationBar: Menu(),
     );
   }
 }
