@@ -30,10 +30,10 @@ class Sobre extends StatelessWidget {
                   children: [
                   Container(child: Text("Texto",style: TextStyle(fontSize: 20),)),
                 Text("Versão 1.0.1",style: TextStyle(fontSize: 15),),
-                    Divider(color: Colors.black,),
+                    Divider(color: Colors.black),
                     Text("Sobre",style: TextStyle(fontSize: 20),),
                     Text("Aplicativo criado por alunos da universidade Católica de Santa Catarina",textAlign: TextAlign.center,style: TextStyle(fontSize: 12),),
-                    Divider(color: Colors.black,),
+                    Divider(color: Colors.black),
                     Text("Desenvolvedores",style: TextStyle(fontSize: 20),),
                     Text("William Ronchi, Amarildo Junior, Nathalya Melchert, Vinicius da Cruz Muller, Alex Sander de Oliveira Barcelos",textAlign: TextAlign.center,style: TextStyle(fontSize: 12),),
                   ],
