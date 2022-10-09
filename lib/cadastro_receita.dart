@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:piattov2/tela_seleciona_ingredientes.dart';
 
-class cadastro_receita extends StatelessWidget {
+class cadastro_receita extends StatefulWidget {
   const cadastro_receita({Key? key}) : super(key: key);
+
+  @override
+  _cadastroReceitaState createState() => _cadastroReceitaState();
+}
+
+class _cadastroReceitaState extends State<cadastro_receita> {
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +128,13 @@ class cadastro_receita extends StatelessWidget {
                                 foregroundColor:
                                 MaterialStateProperty.all(Colors.white),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => seleciona_ingrediente()),
+                                );
+                              },
                               child: Text('Selecionar Ingredientes'),
                             ),
                           ),
