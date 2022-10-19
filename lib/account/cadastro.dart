@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:piattov2/account/tela_login.dart';
 
 class tela_cadastro extends StatelessWidget {
   const tela_cadastro({Key? key}) : super(key: key);
@@ -92,6 +93,23 @@ class tela_cadastro extends StatelessWidget {
                                 ),
                               ),
                             )),
+                        Container(
+                            margin: EdgeInsets.only(bottom: 15),
+                            child: TextField(
+                              cursorColor: Colors.black,
+                              style: TextStyle(color: Colors.white),
+                              decoration: InputDecoration(
+                                hintStyle: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                                hintText: "Confirmar Senha",
+                                filled: true,
+                                fillColor: Color(0xff787878),
+                                border: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            )),
                       ],
                     ),
                   ),
@@ -99,25 +117,16 @@ class tela_cadastro extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          child: SizedBox(
-                            height: 40,
-                            width: 150,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                // Respond to button press
-                              },
-                              child: Text('Entrar'),
-                            ),
-                          ),
-                        ),
-                        Container(
                           margin: EdgeInsets.only(top: 20),
                           child: SizedBox(
                             height: 40,
                             width: 150,
                             child: ElevatedButton(
                               onPressed: () {
-                                // Respond to button press
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const tela_login()),
+                                );
                               },
                               child: Text('Cadastrar'),
                             ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:piattov2/account/tela_login.dart';
 import 'package:piattov2/cadastro_receita.dart';
 import 'package:piattov2/sobre.dart';
+
 
 import 'configuracao.dart';
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PIATTO',
-      home: Config(),
+      home: tela_login(),
     );
   }
 }
