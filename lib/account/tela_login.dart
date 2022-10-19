@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:piattov2/account/cadastro.dart';
 import 'package:piattov2/account/tela_principal.dart';
+import 'package:piattov2/cadastro_receita.dart';
 
 class tela_login extends StatelessWidget {
   const tela_login({Key? key}) : super(key: key);
@@ -108,7 +109,7 @@ class tela_login extends StatelessWidget {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => const tela_principal()),
+                                  MaterialPageRoute(builder: (context) => const cadastro_receita()),
                                 );
                                 // Respond to button press
                               },
