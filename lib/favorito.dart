@@ -8,7 +8,6 @@ class Favoritos extends StatefulWidget {
 }
 
 class _FavoritosState extends State<Favoritos> {
-  int _opcaoSelecionada = 0;
   final double _borderRadius = 24;
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,7 @@ class _FavoritosState extends State<Favoritos> {
                     )
                   ]
                 ),
-                
+
               ),
             ],
           ),
