@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'components/menu.dart';
 
 class cadastro_receita extends StatelessWidget {
   const cadastro_receita({Key? key}) : super(key: key);
@@ -175,7 +174,6 @@ class cadastro_receita extends StatelessWidget {
               ),
             ),
           ),
-          bottomNavigationBar: Menu(),
         ),
       ),
     );

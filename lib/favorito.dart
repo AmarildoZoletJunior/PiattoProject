@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'components/menu.dart';
-
 class Favoritos extends StatefulWidget {
   const Favoritos({Key? key}) : super(key: key);
 
@@ -46,7 +44,6 @@ class _FavoritosState extends State<Favoritos> {
           ),
         ),
       ),
-      bottomNavigationBar: Menu(),
     );
   }
 }
