@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:piattov2/Component/ButtonPages.dart';
 import 'package:piattov2/account/tela_login.dart';
-import 'package:piattov2/cadastro_receita.dart';
-import 'package:piattov2/sobre.dart';
-
-
-import 'configuracao.dart';
 
 void main() {
   runApp(const MyApp());

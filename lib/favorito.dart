@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
-class Favoritos extends StatefulWidget {
-  const Favoritos({Key? key}) : super(key: key);
+class favoritoPage extends StatefulWidget {
+  const favoritoPage({Key? key}) : super(key: key);
 
   @override
-  State<Favoritos> createState() => _FavoritosState();
+  State<favoritoPage> createState() => _favoritoPageState();
 }
 
-class _FavoritosState extends State<Favoritos> {
+class _favoritoPageState extends State<favoritoPage> {
   final double _borderRadius = 24;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: Text("Favoritos"),
       ),
@@ -37,7 +38,6 @@ class _FavoritosState extends State<Favoritos> {
                     )
                   ]
                 ),
-
               ),
             ],
           ),

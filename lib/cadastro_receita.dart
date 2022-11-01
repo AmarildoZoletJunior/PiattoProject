@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class cadastro_receita extends StatelessWidget {
-  const cadastro_receita({Key? key}) : super(key: key);
+class cadastroReceita extends StatelessWidget {
+  const cadastroReceita({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +142,6 @@ class cadastro_receita extends StatelessWidget {
                                       borderSide: BorderSide(
                                         color: Colors.white,
                                       ),
-
                                   ),
                                 ),
                               ),
@@ -174,6 +173,7 @@ class cadastro_receita extends StatelessWidget {
               ),
             ),
           ),
+
         ),
       ),
     );

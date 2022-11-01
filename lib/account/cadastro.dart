@@ -125,7 +125,7 @@ class tela_cadastro extends StatelessWidget {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => const tela_login()),
+                                  MaterialPageRoute(builder: (context) => tela_login()),
                                 );
                               },
                               child: Text('Cadastrar'),
