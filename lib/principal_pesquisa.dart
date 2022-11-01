@@ -1,43 +1,133 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class principalPesquisa extends StatelessWidget {
-  const principalPesquisa({Key? key}) : super(key: key);
+import 'model/ingrediente_model.dart';
+
+class principalPesquisa extends StatefulWidget {
+  @override
+  _principalPesquisaState createState() => _principalPesquisaState();
+}
+
+class _principalPesquisaState extends State<principalPesquisa> {
+  static List<ReceitaModel> receita_list = [
+    ReceitaModel(
+      'Arroz com Feijão',
+      'Feijão',
+      'Nível: Fácil',
+    ),
+    ReceitaModel(
+      'Macarrão alho e óleo',
+      'Alho',
+      'Nível: Médio',
+    ),
+    ReceitaModel(
+      'Churrasco',
+      'Carne',
+      'Nível: Difícil',
+    ),
+    ReceitaModel(
+      'Sopa',
+      'Batata',
+      'Nível: Médio',
+    ),
+    ReceitaModel(
+      'Bolo de cenoura',
+      'Cenoura',
+      'Nível: Médio',
+    ),
+    ReceitaModel(
+      'Bolo de cenoura',
+      'Cenoura',
+      'Nível: Médio',
+    ),
+    ReceitaModel(
+      'Bolo de cenoura',
+      'Cenoura',
+      'Nível: Médio',
+    ),
+  ];
+
+  List<ReceitaModel> display_list = List.from(receita_list);
+
+  void updateList(String value) {
+    setState(() {
+      display_list = receita_list
+          .where((element) => element.receita_ingredientes!
+              .toLowerCase()
+              .contains(value.toLowerCase()))
+          .toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DefaultTabController(
-        length: 1,
-        child: Scaffold(
-          body: SafeArea(
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment(0, 1),
-                  colors: <Color>[
-                    Color(0xffb00000),
-                    Color(0xffca0404),
-                    Color(0xffd20606),
-                    Color(0xffd80808),
-                    Color(0xffe60c0c),
-                    Color(0xffed0d0d),
-                    Color(0xffdd2921),
-                    Color(0xffbb5541),
-                    Color(0xffa86f53),
-                    Color(0xff968663),
-                    Color(0xff82a075),
-                    Color(0xff70b987),
-                    Color(0xff5ec18a),
-                    Color(0xff4ec88d),
-                    Color(0xff3cb97d),
-                    Color(0xff30af72),
-                  ], // Gradient from https://learnui.design/tools/gradient-generator.html              tileMode: TileMode.mirror,
+    return Scaffold(
+      backgroundColor: Colors.black12,
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Pesquisar Receitas",
+              style: GoogleFonts.italiana(
+                textStyle: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
             ),
-          ),
+            SizedBox(
+              height: 20,
+            ),
+            TextField(
+              onChanged: (value) => updateList(value),
+              style: TextStyle(color: Colors.black),
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.green.shade100,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide.none,
+                ),
+                hintText: 'Ingrediente',
+                prefixIcon: Icon(Icons.search),
+                prefixIconColor: Colors.black,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: receita_list.length,
+                itemBuilder: (context, index) => ListTile(
+                  contentPadding: EdgeInsets.all(8),
+                  title: Text(
+                    display_list[index].receita_nome!,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  subtitle: Text(
+                    '${display_list[index].receita_ingredientes!}',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                  trailing: Text(
+                    '${display_list[index].receita_dificuldade}',
+                    style: TextStyle(
+                      color: Colors.green,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

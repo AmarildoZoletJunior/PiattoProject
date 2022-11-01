@@ -10,6 +10,8 @@ class tela_login extends StatefulWidget {
 
 class _tela_loginState extends State<tela_login> {
   final emailController = TextEditingController();
+  String password = '';
+  bool isPasswordVisible = false;
 
   @override
   void initState() {
@@ -29,8 +31,8 @@ class _tela_loginState extends State<tela_login> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.only(bottom: 10, top: 20),
-                height: 200,
+                margin: EdgeInsets.only(bottom: 10, top: 10),
+                height: 180,
                 child: Center(
                   child: Text(
                     'PIATTO',
@@ -73,12 +75,18 @@ class _tela_loginState extends State<tela_login> {
                       margin: EdgeInsets.only(bottom: 30),
                       child: TextField(
                         cursorColor: Colors.black,
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           hintText: "******",
                           labelText: 'Senha',
+                          suffixIcon: IconButton(
+                            icon: isPasswordVisible
+                            ? Icon(Icons.visibility_off) : Icon(Icons.visibility),
+                            onPressed: () => setState(() => isPasswordVisible = !isPasswordVisible),
+                          ),
                           border: OutlineInputBorder(),
                         ),
+                        obscureText: isPasswordVisible,
                       ),
                     ),
                   ],
@@ -110,7 +118,7 @@ class _tela_loginState extends State<tela_login> {
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     Container(
                       child: SizedBox(
@@ -121,7 +129,7 @@ class _tela_loginState extends State<tela_login> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const tela_cadastro()),
+                                  builder: (context) => tela_cadastro()),
                             );
                           },
                           style: ElevatedButton.styleFrom(

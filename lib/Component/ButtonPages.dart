@@ -39,9 +39,8 @@ class _MainPageState extends State<MainPage> {
               setState(() => this.index = index),
             destinations: [
               NavigationDestination(
-                icon: Icon(Icons.home_outlined),
-                selectedIcon: Icon(Icons.home),
-                label: 'Página Inicial',
+                icon: Icon(Icons.search),
+                label: 'Pesquisar Receita',
               ),
               NavigationDestination(
                 icon: Icon(Icons.favorite_border_outlined),

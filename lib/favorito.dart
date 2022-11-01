@@ -12,7 +12,6 @@ class _favoritoPageState extends State<favoritoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         title: Text("Favoritos"),
       ),

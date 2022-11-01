@@ -1,146 +1,141 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:piattov2/account/tela_login.dart';
 
-class tela_cadastro extends StatelessWidget {
-  const tela_cadastro({Key? key}) : super(key: key);
+class tela_cadastro extends StatefulWidget {
+  @override
+  _tela_cadastroState createState() => _tela_cadastroState();
+}
 
-  // This widget is the root of your application.
+class _tela_cadastroState extends State<tela_cadastro> {
+  final emailController = TextEditingController();
+  String password = '';
+  bool isPasswordVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    emailController.addListener(() => setState(() {}));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Stack(
-          children: [
-            Positioned(
-              child: Container(
-                width: 500.0,
-                height: 1500,
-                color: Color(0xff01C667),
-              ),
-            ),
-            Positioned(
-              child: Container(
-                width: 900.0,
-                height: 800.0,
-                decoration: new BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                ),
-              ),
-              left: -250,
-              top: -300,
-            ),
-            Positioned(
-              child: Container(
-                width: 900.0,
-                height: 800.0,
-                decoration: new BoxDecoration(
-                  color: Color(0xffC10303),
-                  shape: BoxShape.circle,
-                ),
-              ),
-              top: -480,
-              left: -250,
-            ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(bottom: 10, top: 50),
-                    width: 360,
-                    height: 200,
-                    child: Image(
-                      image: AssetImage("Image/PIATTO.png"),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.only(bottom: 10, top: 10),
+                height: 100,
+                child: Center(
+                  child: Text(
+                    'PIATTO',
+                    style: GoogleFonts.italiana(
+                      textStyle: TextStyle(
+                        fontSize: 72,
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
                   ),
-                  Container(
-                    width: 330,
-                    child: Column(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(bottom: 20),
-                          child: TextField(
-                            cursorColor: Colors.black,
-                            style: TextStyle(color: Colors.white),
-                            decoration: InputDecoration(
-                              hintStyle:
-                              TextStyle(color: Colors.white, fontSize: 20),
-                              hintText: "Email",
-                              filled: true,
-                              fillColor: Color(0xff787878),
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius: BorderRadius.circular(10)),
-                            ),
-                          ),
+                ),
+              ),
+              Container(
+                width: 350,
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      child: TextField(
+                        controller: emailController,
+                        cursorColor: Colors.black,
+                        style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                          hintText: "name@example.com",
+                          labelText: 'Email',
+                          prefixIcon: Icon(Icons.mail),
+                          border: OutlineInputBorder(),
+                          suffixIcon: emailController.text.isEmpty
+                              ? Container(width: 0)
+                              : IconButton(
+                                  icon: Icon(Icons.close),
+                                  onPressed: () => emailController.clear(),
+                                ),
                         ),
-                        Container(
-                            margin: EdgeInsets.only(bottom: 30),
-                            child: TextField(
-                              cursorColor: Colors.black,
-                              style: TextStyle(color: Colors.white),
-                              decoration: InputDecoration(
-                                hintStyle: TextStyle(
-                                    color: Colors.white, fontSize: 20),
-                                hintText: "Senha",
-                                filled: true,
-                                fillColor: Color(0xff787878),
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                            )),
-                        Container(
-                            margin: EdgeInsets.only(bottom: 15),
-                            child: TextField(
-                              cursorColor: Colors.black,
-                              style: TextStyle(color: Colors.white),
-                              decoration: InputDecoration(
-                                hintStyle: TextStyle(
-                                    color: Colors.white, fontSize: 20),
-                                hintText: "Confirmar Senha",
-                                filled: true,
-                                fillColor: Color(0xff787878),
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                            )),
-                      ],
+                        keyboardType: TextInputType.emailAddress,
+                        textInputAction: TextInputAction.done,
+                      ),
                     ),
-                  ),
-                  Container(
-                    child: Column(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 20),
-                          child: SizedBox(
-                            height: 40,
-                            width: 150,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => tela_login()),
-                                );
-                              },
-                              child: Text('Cadastrar'),
-                            ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      child: TextField(
+                        cursorColor: Colors.black,
+                        style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                          hintText: "******",
+                          labelText: 'Senha',
+                          suffixIcon: IconButton(
+                            icon: isPasswordVisible
+                                ? Icon(Icons.visibility_off)
+                                : Icon(Icons.visibility),
+                            onPressed: () => setState(
+                                () => isPasswordVisible = !isPasswordVisible),
                           ),
-                        )
-                      ],
+                          border: OutlineInputBorder(),
+                        ),
+                        obscureText: isPasswordVisible,
+                      ),
                     ),
-                  ),
-                ],
+                    Container(
+                      margin: EdgeInsets.only(bottom: 30),
+                      child: TextField(
+                        cursorColor: Colors.black,
+                        style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                          hintText: "******",
+                          labelText: 'Confirmar senha',
+                          suffixIcon: IconButton(
+                            icon: isPasswordVisible
+                                ? Icon(Icons.visibility_off)
+                                : Icon(Icons.visibility),
+                            onPressed: () => setState(
+                                    () => isPasswordVisible = !isPasswordVisible),
+                          ),
+                          border: OutlineInputBorder(),
+                        ),
+                        obscureText: isPasswordVisible,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
+              Container(
+                child: SizedBox(
+                  height: 30,
+                  width: 120,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => tela_login()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black,
+                    ),
+                    child: Text('Cadastrar'),
+                  ),
+                ),
+              )
+                  ],
+                ),
+              ),
+          ),
     );
   }
 }

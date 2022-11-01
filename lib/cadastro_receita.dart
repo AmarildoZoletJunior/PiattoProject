@@ -10,42 +10,10 @@ class cadastroReceita extends StatelessWidget {
       home: DefaultTabController(
         length: 1,
         child: Scaffold(
+          backgroundColor: Colors.black12,
           body: SafeArea(
             child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment(0, 1),
-                  colors: <Color>[
-                    Color(0xffb00000),
-                    Color(0xffca0404),
-                    Color(0xffd20606),
-                    Color(0xffd80808),
-                    Color(0xffe60c0c),
-                    Color(0xffed0d0d),
-                    Color(0xffdd2921),
-                    Color(0xffbb5541),
-                    Color(0xffa86f53),
-                    Color(0xff968663),
-                    Color(0xff82a075),
-                    Color(0xff70b987),
-                    Color(0xff5ec18a),
-                    Color(0xff4ec88d),
-                    Color(0xff3cb97d),
-                    Color(0xff30af72),
-                  ], // Gradient from https://learnui.design/tools/gradient-generator.html              tileMode: TileMode.mirror,
-                ),
-              ),
               child: Center(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.3),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                  height: 620,
-                  width: 400,
                   child: Container(
                     child: ListView(
                       padding: const EdgeInsets.all(8),
@@ -58,19 +26,18 @@ class cadastroReceita extends StatelessWidget {
                                 decoration: InputDecoration(
                                   enabled: true,
                                   hintText: "Nome da Receita",
+                                  hintStyle: TextStyle(fontWeight: FontWeight.normal),
                                   filled: true,
                                   fillColor: Colors.white,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                      color: Colors.white,
+                                    borderSide: BorderSide.none
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
@@ -138,10 +105,8 @@ class cadastroReceita extends StatelessWidget {
                                     fillColor: Colors.white,
                                     filled: true,
                                     border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                        color: Colors.white,
-                                      ),
+                                      borderRadius: BorderRadius.circular(20),
+                                      borderSide: BorderSide.none,
                                   ),
                                 ),
                               ),
@@ -149,7 +114,7 @@ class cadastroReceita extends StatelessWidget {
                           ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: 90.0, left: 8, right: 8),
+                              top: 100.0, left: 8, right: 8),
                           child: Container(
                             height: 50,
                             child: ElevatedButton(
@@ -173,8 +138,6 @@ class cadastroReceita extends StatelessWidget {
               ),
             ),
           ),
-
-        ),
       ),
     );
   }
