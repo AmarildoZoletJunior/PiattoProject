@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:piattov2/cadastro_receita.dart';
 
 class seleciona_ingrediente extends StatefulWidget {
   const seleciona_ingrediente({Key? key}) : super(key: key);
@@ -15,41 +17,33 @@ class _selecionaIngrediente extends State<seleciona_ingrediente> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DefaultTabController(
-        length: 1,
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment(0, 1),
-              colors: <Color>[
-                Color(0xffb00000),
-                Color(0xffca0404),
-                Color(0xffd20606),
-                Color(0xffd80808),
-                Color(0xffe60c0c),
-                Color(0xffed0d0d),
-                Color(0xffdd2921),
-                Color(0xffbb5541),
-                Color(0xffa86f53),
-                Color(0xff968663),
-                Color(0xff82a075),
-                Color(0xff70b987),
-                Color(0xff5ec18a),
-                Color(0xff4ec88d),
-                Color(0xff3cb97d),
-                Color(0xff30af72),
-              ], // Gradient from https://learnui.design/tools/gradient-generator.html              tileMode: TileMode.mirror,
+      home: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.black),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => cadastroReceita()),
+              );
+            }
+          ),
+          backgroundColor: Colors.white,
+          title: Text(
+            'Selecionar Ingredientes',
+            style: GoogleFonts.italiana(
+              textStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
+        ),
+        body: Container(
           child: Center(
             child: Container(
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.3),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(20),
-                ),
-              ),
               height: 620,
               width: 400,
               child: Scaffold(
@@ -64,8 +58,8 @@ class _selecionaIngrediente extends State<seleciona_ingrediente> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         color: data[index]['isSelected'] == true
-                            ? Colors.amber
-                            : Colors.blue,
+                            ? Colors.green.shade500
+                            : Colors.grey,
                         child: ListTile(
                           onTap: () {
                             setState(
