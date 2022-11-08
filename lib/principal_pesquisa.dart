@@ -16,7 +16,7 @@ class _principalPesquisaState extends State<principalPesquisa> {
       'Nível: Fácil',
     ),
     ReceitaModel(
-      'Macarrão alho e óleo',
+      'Macarrão ao alho e óleo',
       'Alho',
       'Nível: Médio',
     ),
@@ -67,7 +67,7 @@ class _principalPesquisaState extends State<principalPesquisa> {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         title: Text(
-          'Pequisar Receita',
+          'Pesquisar Receita',
           style: GoogleFonts.italiana(
             textStyle: TextStyle(
               color: Colors.black,
@@ -75,7 +75,8 @@ class _principalPesquisaState extends State<principalPesquisa> {
               fontWeight: FontWeight.bold,
             ),
           ),
-        ),),
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(
@@ -86,20 +87,20 @@ class _principalPesquisaState extends State<principalPesquisa> {
               height: 20,
             ),
             TextField(
-                onChanged: (value) => updateList(value),
-                style: TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.green.shade100,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide.none,
-                  ),
-                  hintText: 'Ingrediente',
-                  prefixIcon: Icon(Icons.search),
-                  prefixIconColor: Colors.black,
+              onChanged: (value) => updateList(value),
+              style: TextStyle(color: Colors.black),
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.green.shade100,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide.none,
                 ),
+                hintText: 'Ingrediente',
+                prefixIcon: Icon(Icons.search),
+                prefixIconColor: Colors.black,
               ),
+            ),
             SizedBox(
               height: 20,
             ),
@@ -109,51 +110,50 @@ class _principalPesquisaState extends State<principalPesquisa> {
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                      width: 250,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)
+                    width: 250,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          spreadRadius: 2,
+                          blurRadius: 4,
+                          offset: Offset(5, 5),
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            spreadRadius: 2,
-                            blurRadius: 4,
-                            offset: Offset(5, 5),
-                          ),
-                        ],
+                      ],
+                    ),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.all(16),
+                      title: Text(
+                        display_list[index].receita_nome!,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      child: ListTile(
-                        contentPadding: EdgeInsets.all(16),
-                        title: Text(
-                          display_list[index].receita_nome!,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      subtitle: Text(
+                        '${display_list[index].receita_ingredientes!}',
+                        style: TextStyle(
+                          color: Colors.black,
                         ),
-                        subtitle: Text(
-                          '${display_list[index].receita_ingredientes!}',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                        trailing: Text(
-                          '${display_list[index].receita_dificuldade}',
-                          style: TextStyle(
-                            color: Colors.green,
-                          ),
+                      ),
+                      trailing: Text(
+                        '${display_list[index].receita_dificuldade}',
+                        style: TextStyle(
+                          color: Colors.green,
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
+            ),
           ],
         ),
       ),

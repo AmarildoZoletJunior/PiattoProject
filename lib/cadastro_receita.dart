@@ -15,7 +15,7 @@ class cadastroReceita extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.white,
             title: Text(
-              'Cadastra Receita',
+              'Cadastrar Receita',
               style: GoogleFonts.italiana(
                 textStyle: TextStyle(
                   color: Colors.black,
