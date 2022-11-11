@@ -17,7 +17,7 @@ class _tela_loginState extends State<tela_login> {
   void initState() {
     super.initState();
 
-    emailController.addListener(() => setState (() {}));
+    emailController.addListener(() => setState(() {}));
   }
 
   @override
@@ -56,7 +56,7 @@ class _tela_loginState extends State<tela_login> {
                         cursorColor: Colors.black,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
-                          hintText: "name@example.com",
+                          hintText: "usuario@email.com",
                           labelText: 'Email',
                           prefixIcon: Icon(Icons.mail),
                           border: OutlineInputBorder(),
@@ -81,8 +81,10 @@ class _tela_loginState extends State<tela_login> {
                           labelText: 'Senha',
                           suffixIcon: IconButton(
                             icon: isPasswordVisible
-                            ? Icon(Icons.visibility_off) : Icon(Icons.visibility),
-                            onPressed: () => setState(() => isPasswordVisible = !isPasswordVisible),
+                                ? Icon(Icons.visibility_off)
+                                : Icon(Icons.visibility),
+                            onPressed: () => setState(
+                                () => isPasswordVisible = !isPasswordVisible),
                           ),
                           border: OutlineInputBorder(),
                         ),

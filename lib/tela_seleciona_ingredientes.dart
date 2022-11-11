@@ -21,18 +21,16 @@ class _selecionaIngrediente extends State<seleciona_ingrediente> {
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.black),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => cadastroReceita()),
-              );
-            }
-          ),
+              icon: Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => cadastroReceita()),
+                );
+              }),
           backgroundColor: Colors.white,
           title: Text(
-            'Selecionar Ingredientes',
+            'Selecionar ingredientes',
             style: GoogleFonts.italiana(
               textStyle: TextStyle(
                 color: Colors.black,
