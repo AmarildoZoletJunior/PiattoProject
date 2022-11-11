@@ -13,37 +13,30 @@ class _principalPesquisaState extends State<principalPesquisa> {
     ReceitaModel(
       'Arroz com Feijão',
       'Feijão',
-      'Nível: Fácil',
     ),
     ReceitaModel(
       'Macarrão alho e óleo',
       'Alho',
-      'Nível: Médio',
     ),
     ReceitaModel(
       'Churrasco',
       'Carne',
-      'Nível: Difícil',
     ),
     ReceitaModel(
       'Sopa',
       'Batata',
-      'Nível: Médio',
     ),
     ReceitaModel(
       'Bolo de cenoura',
       'Cenoura',
-      'Nível: Médio',
     ),
     ReceitaModel(
       'Bolo de cenoura',
       'Cenoura',
-      'Nível: Médio',
     ),
     ReceitaModel(
       'Bolo de cenoura',
       'Cenoura',
-      'Nível: Médio',
     ),
   ];
 
@@ -141,12 +134,6 @@ class _principalPesquisaState extends State<principalPesquisa> {
                           '${display_list[index].receita_ingredientes!}',
                           style: TextStyle(
                             color: Colors.black,
-                          ),
-                        ),
-                        trailing: Text(
-                          '${display_list[index].receita_dificuldade}',
-                          style: TextStyle(
-                            color: Colors.green,
                           ),
                         ),
                       ),

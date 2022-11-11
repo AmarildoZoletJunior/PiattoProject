@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:piattov2/sobre.dart';
 
 class configuracoes extends StatelessWidget {
   const configuracoes({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class configuracoes extends StatelessWidget {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 50.0),
+          padding: const EdgeInsets.only(top: 100.0),
           child: Center(
             child: Column(
               children: [
@@ -68,44 +69,14 @@ class configuracoes extends StatelessWidget {
                   height: 35,
                   width: 300,
                   child: ElevatedButton(
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.person,
-                        ),
-                        SizedBox(
-                          width: 40,
-                        ),
-                        Center(
-                          child: Text(
-                            'Informações da Conta',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                        ),
-                      ],
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.grey.shade400,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                Container(
-                  height: 35,
-                  width: 300,
-                  child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Sobre()),
+                      );
+                    },
                     child: Row(
                       children: [
                         Icon(
@@ -136,7 +107,7 @@ class configuracoes extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 100,
+                  height: 15,
                 ),
                 Container(
                   height: 35,

@@ -3,7 +3,6 @@ import 'package:piattov2/cadastro_receita.dart';
 import 'package:piattov2/configuracao.dart';
 import 'package:piattov2/favorito.dart';
 import 'package:piattov2/minhas_receitas.dart';
-
 import '../principal_pesquisa.dart';
 
 class MainPage extends StatefulWidget {
@@ -27,7 +26,7 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: Colors.transparent,
         bottomNavigationBar: NavigationBarTheme(
           data: NavigationBarThemeData(
-            indicatorColor: Colors.green.shade100,
+            indicatorColor: Colors.green.shade300,
             labelTextStyle: MaterialStateProperty.all(
               TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
             )

@@ -14,7 +14,6 @@ class _favoritoPageState extends State<favoritoPage> {
     ReceitaModel(
       'Arroz com Feijão',
       'Feijão',
-      'Nível: Fácil',
     ),
   ];
   List<ReceitaModel> display_list = List.from(receita_list);
@@ -82,12 +81,6 @@ class _favoritoPageState extends State<favoritoPage> {
                         '${display_list[index].receita_ingredientes!}',
                         style: TextStyle(
                           color: Colors.black,
-                        ),
-                      ),
-                      trailing: Text(
-                        '${display_list[index].receita_dificuldade}',
-                        style: TextStyle(
-                          color: Colors.green,
                         ),
                       ),
                     ),

@@ -118,7 +118,7 @@ class _tela_loginState extends State<tela_login> {
                       ),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     Container(
                       child: SizedBox(

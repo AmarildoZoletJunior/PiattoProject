@@ -75,47 +75,7 @@ class cadastroReceita extends StatelessWidget {
                               shadowColor: Colors.black,
                               elevation: 5,
                               primary: Colors.white,
-                              onPrimary: Colors.red.shade200,
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              'Doce',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 40,
-                          width: 40,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shadowColor: Colors.black,
-                              elevation: 5,
-                              primary: Colors.white,
-                              onPrimary: Colors.red.shade200,
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              'Salgado',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 40,
-                          width: 40,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shadowColor: Colors.black,
-                              elevation: 5,
-                              primary: Colors.white,
-                              onPrimary: Colors.green.shade200,
+                              onPrimary: Colors.green.shade400,
                             ),
                             onPressed: () {
                               Navigator.push(
@@ -165,7 +125,7 @@ class cadastroReceita extends StatelessWidget {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsets.only(top: 80, left: 8, right: 8),
+                        const EdgeInsets.only(top: 200, left: 8, right: 8),
                         child: Container(
                           height: 50,
                           child: ElevatedButton(
