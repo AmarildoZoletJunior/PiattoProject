@@ -135,21 +135,13 @@ class _principalPesquisaState extends State<principalPesquisa> {
                         style: TextStyle(
                           color: Colors.black,
                         ),
-<<<<<<< HEAD
-                        subtitle: Text(
-                          '${display_list[index].receita_ingredientes!}',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-=======
                       ),
-                      trailing: Text(
-                        '${display_list[index].receita_dificuldade}',
-                        style: TextStyle(
-                          color: Colors.green,
->>>>>>> 5d3d09996daf9ef56d3f7ef5ae59d7c2fb3572ed
-                        ),
-                      ),
+                      // trailing: Text(
+                      //   '${display_list[index].receita_dificuldade}',
+                      //   style: TextStyle(
+                      //     color: Colors.green,
+                      //   ),
+                      // ),
                     ),
                   ),
                 ),
