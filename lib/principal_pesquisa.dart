@@ -136,12 +136,6 @@ class _principalPesquisaState extends State<principalPesquisa> {
                           color: Colors.black,
                         ),
                       ),
-                      // trailing: Text(
-                      //   '${display_list[index].receita_dificuldade}',
-                      //   style: TextStyle(
-                      //     color: Colors.green,
-                      //   ),
-                      // ),
                     ),
                   ),
                 ),
