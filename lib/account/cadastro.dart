@@ -56,7 +56,7 @@ class _tela_cadastroState extends State<tela_cadastro> {
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           hintText: "name@example.com",
-                          labelText: 'Email',
+                          labelText: 'E-mail',
                           prefixIcon: Icon(Icons.mail),
                           border: OutlineInputBorder(),
                           suffixIcon: emailController.text.isEmpty
@@ -78,6 +78,7 @@ class _tela_cadastroState extends State<tela_cadastro> {
                         decoration: InputDecoration(
                           hintText: "******",
                           labelText: 'Senha',
+                          prefixIcon: Icon(Icons.https),
                           suffixIcon: IconButton(
                             icon: isPasswordVisible
                                 ? Icon(Icons.visibility_off)
@@ -98,12 +99,13 @@ class _tela_cadastroState extends State<tela_cadastro> {
                         decoration: InputDecoration(
                           hintText: "******",
                           labelText: 'Confirmar senha',
+                          prefixIcon: Icon(Icons.https),
                           suffixIcon: IconButton(
                             icon: isPasswordVisible
                                 ? Icon(Icons.visibility_off)
                                 : Icon(Icons.visibility),
                             onPressed: () => setState(
-                                    () => isPasswordVisible = !isPasswordVisible),
+                                () => isPasswordVisible = !isPasswordVisible),
                           ),
                           border: OutlineInputBorder(),
                         ),
@@ -121,8 +123,7 @@ class _tela_cadastroState extends State<tela_cadastro> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => tela_login()),
+                        MaterialPageRoute(builder: (context) => tela_login()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -132,10 +133,10 @@ class _tela_cadastroState extends State<tela_cadastro> {
                   ),
                 ),
               )
-                  ],
-                ),
-              ),
+            ],
           ),
+        ),
+      ),
     );
   }
 }

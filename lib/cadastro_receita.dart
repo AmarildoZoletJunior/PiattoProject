@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:piattov2/minhas_receitas.dart';
 import 'package:piattov2/tela_seleciona_ingredientes.dart';
 
 class cadastroReceita extends StatelessWidget {
@@ -125,7 +126,7 @@ class cadastroReceita extends StatelessWidget {
                       ),
                       Padding(
                         padding:
-                        const EdgeInsets.only(top: 200, left: 8, right: 8),
+                            const EdgeInsets.only(top: 200, left: 8, right: 8),
                         child: Container(
                           height: 50,
                           child: ElevatedButton(
@@ -133,7 +134,13 @@ class cadastroReceita extends StatelessWidget {
                               backgroundColor: MaterialStateProperty.all(
                                   Colors.green.shade200),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => minhasReceitas()),
+                              );
+                            },
                             child: Text('Publicar Receita'),
                           ),
                         ),

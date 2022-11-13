@@ -22,20 +22,19 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    body: screens[index],
+        body: screens[index],
         backgroundColor: Colors.transparent,
         bottomNavigationBar: NavigationBarTheme(
           data: NavigationBarThemeData(
-            indicatorColor: Colors.green.shade300,
-            labelTextStyle: MaterialStateProperty.all(
-              TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-            )
-          ),
+              indicatorColor: Colors.green.shade300,
+              labelTextStyle: MaterialStateProperty.all(
+                TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+              )),
           child: NavigationBar(
             height: 60,
             selectedIndex: index,
             onDestinationSelected: (index) =>
-              setState(() => this.index = index),
+                setState(() => this.index = index),
             destinations: [
               NavigationDestination(
                 icon: Icon(Icons.search),

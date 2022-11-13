@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:piattov2/account/tela_login.dart';
+import 'package:piattov2/receita_solo.dart';
 import 'package:piattov2/sobre.dart';
 
 class configuracoes extends StatelessWidget {
@@ -62,6 +64,18 @@ class configuracoes extends StatelessWidget {
                     ],
                   ),
                 ),
+                Container(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Text(
+                    "E-mail do Usuário",
+                    style: GoogleFonts.roboto(
+                      textStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: 75,
                 ),
@@ -72,9 +86,7 @@ class configuracoes extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                Sobre()),
+                        MaterialPageRoute(builder: (context) => receitaSolo()),
                       );
                     },
                     child: Row(
@@ -113,7 +125,12 @@ class configuracoes extends StatelessWidget {
                   height: 35,
                   width: 300,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => tela_login()),
+                      );
+                    },
                     child: Row(
                       children: [
                         Icon(

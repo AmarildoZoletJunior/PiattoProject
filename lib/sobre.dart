@@ -40,7 +40,7 @@ class Sobre extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 100),
                 width: 350,
-                height: 400,
+                height: 300,
                 decoration: BoxDecoration(
                   color: Colors.white,
                 ),
@@ -49,23 +49,31 @@ class Sobre extends StatelessWidget {
                     Container(
                       child: Text(
                         "Versão",
-                          style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
-                              color: Colors.black,
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                    SizedBox(height: 5,),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       "1.1.1",
                       style: TextStyle(fontSize: 15),
                     ),
-                    SizedBox(height: 10,),
-                    Divider(color: Colors.black,),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Divider(
+                      color: Colors.black,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       "Sobre",
                       style: GoogleFonts.roboto(
@@ -76,15 +84,21 @@ class Sobre extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       "Aplicativo criado por alunos da universidade Católica de Santa Catarina",
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 15),
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Divider(color: Colors.black),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       "Desenvolvedores",
                       style: GoogleFonts.roboto(
@@ -95,11 +109,36 @@ class Sobre extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       "William Ronchi, Amarildo Junior, Nathalya Melchert, Vinicius da Cruz Muller, Alex Sander de Oliveira Barcelos",
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 15),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: 150,
+                height: 150,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 150,
+                      width: 150,
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          CircleAvatar(
+                            backgroundImage: AssetImage('Image/Planeta.png'),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

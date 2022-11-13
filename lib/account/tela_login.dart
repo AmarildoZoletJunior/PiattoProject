@@ -57,7 +57,7 @@ class _tela_loginState extends State<tela_login> {
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           hintText: "usuario@email.com",
-                          labelText: 'Email',
+                          labelText: 'E-mail',
                           prefixIcon: Icon(Icons.mail),
                           border: OutlineInputBorder(),
                           suffixIcon: emailController.text.isEmpty
@@ -79,6 +79,7 @@ class _tela_loginState extends State<tela_login> {
                         decoration: InputDecoration(
                           hintText: "******",
                           labelText: 'Senha',
+                          prefixIcon: Icon(Icons.https),
                           suffixIcon: IconButton(
                             icon: isPasswordVisible
                                 ? Icon(Icons.visibility_off)
