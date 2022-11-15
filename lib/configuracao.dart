@@ -70,7 +70,8 @@ class configuracoes extends StatelessWidget {
                       Container(
                         margin: EdgeInsets.only(top: 20),
                         width: 300,
-                        height: 300,
+                        height:
+                            270, //Se atentar ao overflow. Valores acima de 276 estouram o limite.
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                         ),
@@ -88,14 +89,22 @@ class configuracoes extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Text(
                               "1.1.1",
                               style: TextStyle(fontSize: 15),
                             ),
-                            SizedBox(height: 10,),
-                            Divider(color: Colors.black,),
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Divider(
+                              color: Colors.black,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Text(
                               "Sobre",
                               style: GoogleFonts.roboto(
@@ -106,15 +115,21 @@ class configuracoes extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Text(
                               "Aplicativo criado por alunos da universidade Católica de Santa Catarina",
                               textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 15),
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Divider(color: Colors.black),
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Text(
                               "Desenvolvedores",
                               style: GoogleFonts.roboto(
@@ -125,9 +140,11 @@ class configuracoes extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Text(
-                              "William Ronchi, Amarildo Junior, Nathalya Melchert, Vinicius da Cruz Muller, Alex Sander de Oliveira Barcelos",
+                              "William Ronchi, Amarildo Junior, Nathalya Melchert, Vinícius da Cruz Muller, Alex Sander de Oliveira Barcelos",
                               textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 15),
                             ),
