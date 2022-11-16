@@ -13,7 +13,7 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
+      type: BottomNavigationBarType.shifting,
       currentIndex: _opcaoSelecionada,
       onTap: (opcao) {
         print('clicou $opcao');

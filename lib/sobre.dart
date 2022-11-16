@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:piattov2/principal_pesquisa.dart';
-import 'model/ingrediente_model.dart';
+import 'package:piattov2/configuracao.dart';
 
-class receitaSolo extends StatelessWidget {
-  const receitaSolo({Key? key}) : super(key: key);
+class Sobre extends StatelessWidget {
+  const Sobre({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +19,12 @@ class receitaSolo extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => principalPesquisa()),
+                MaterialPageRoute(builder: (context) => configuracoes()),
               );
             },
           ),
           title: Text(
-            'Voltar',
+            'Sobre',
             style: GoogleFonts.italiana(
               textStyle: TextStyle(
                 color: Colors.black,
@@ -40,33 +39,20 @@ class receitaSolo extends StatelessWidget {
             children: [
               Container(
                 margin: EdgeInsets.only(top: 100),
-                width: 250,
-                height: 400,
+                width: 350,
+                height: 300,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: Offset(5, 5),
-                    ),
-                  ],
                 ),
                 child: Column(
                   children: [
                     Container(
                       child: Text(
-                        "Arroz com Feijão",
+                        "Versão",
                         style: GoogleFonts.roboto(
                           textStyle: TextStyle(
                             color: Colors.black,
-                            fontSize: 24,
+                            fontSize: 22,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -76,25 +62,8 @@ class receitaSolo extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "Nível: Médio",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      "Ingredientes",
-                      style: GoogleFonts.roboto(
-                        textStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      "....",
-                      style: TextStyle(fontSize: 14),
+                      "1.1.1",
+                      style: TextStyle(fontSize: 15),
                     ),
                     SizedBox(
                       height: 10,
@@ -106,11 +75,11 @@ class receitaSolo extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      "Modo de Preparo",
+                      "Sobre",
                       style: GoogleFonts.roboto(
                         textStyle: TextStyle(
                           color: Colors.black,
-                          fontSize: 18,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -119,26 +88,56 @@ class receitaSolo extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "Pegar os ingredientes e blablablablabla...",
+                      "Aplicativo criado por alunos da universidade Católica de Santa Catarina",
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 14),
+                      style: TextStyle(fontSize: 15),
                     ),
-                    Container(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      height: 35,
-                      width: 57,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.favorite_border_outlined,
-                            ),
-                          ],
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Divider(color: Colors.black),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Desenvolvedores",
+                      style: GoogleFonts.roboto(
+                        textStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
                         ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Color.fromARGB(0, 235, 128, 128),
-                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "William Ronchi, Amarildo Junior, Nathalya Melchert, Vinicius da Cruz Muller, Alex Sander de Oliveira Barcelos",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: 150,
+                height: 150,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 150,
+                      width: 150,
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          CircleAvatar(
+                            backgroundImage: AssetImage('Image/Planeta.png'),
+                          ),
+                        ],
                       ),
                     ),
                   ],

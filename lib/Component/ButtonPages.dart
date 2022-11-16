@@ -56,8 +56,8 @@ class _MainPageState extends State<MainPage> {
                 label: 'Minhas Receitas',
               ),
               NavigationDestination(
-                icon: Icon(Icons.info_outline),
-                selectedIcon: Icon(Icons.info),
+                icon: Icon(Icons.settings_outlined),
+                selectedIcon: Icon(Icons.settings),
                 label: 'Sobre',
               ),
             ],

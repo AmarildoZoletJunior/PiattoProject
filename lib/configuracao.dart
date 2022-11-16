@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:piattov2/account/tela_login.dart';
+import 'package:piattov2/receita_solo.dart';
+import 'package:piattov2/sobre.dart';
 
 class configuracoes extends StatelessWidget {
   const configuracoes({Key? key}) : super(key: key);
@@ -12,7 +15,7 @@ class configuracoes extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: Text(
-            'Sobre',
+            'Configurações',
             style: GoogleFonts.italiana(
               textStyle: TextStyle(
                 color: Colors.black,
@@ -23,7 +26,7 @@ class configuracoes extends StatelessWidget {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 50.0),
+          padding: const EdgeInsets.only(top: 100.0),
           child: Center(
             child: Column(
               children: [
@@ -61,97 +64,58 @@ class configuracoes extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 20),
-                        width: 300,
-                        height:
-                            270, //Se atentar ao overflow. Valores acima de 276 estouram o limite.
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                        ),
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Text(
-                                "Versão",
-                                style: GoogleFonts.roboto(
-                                  textStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              "1.1.1",
-                              style: TextStyle(fontSize: 15),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Divider(
-                              color: Colors.black,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Sobre",
-                              style: GoogleFonts.roboto(
-                                textStyle: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              "Aplicativo criado por alunos da universidade Católica de Santa Catarina",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 15),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Divider(color: Colors.black),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Desenvolvedores",
-                              style: GoogleFonts.roboto(
-                                textStyle: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              "William Ronchi, Amarildo Junior, Nathalya Melchert, Vinícius da Cruz Muller, Alex Sander de Oliveira Barcelos",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 15),
-                            ),
-                          ],
-                        ),
+                Container(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Text(
+                    "E-mail do Usuário",
+                    style: GoogleFonts.roboto(
+                      textStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
                       ),
-                    ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 75,
+                ),
+                Container(
+                  height: 35,
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => receitaSolo()),
+                      );
+                    },
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.info,
+                        ),
+                        SizedBox(
+                          width: 40,
+                        ),
+                        Center(
+                          child: Text(
+                            'Sobre o Aplicativo',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 65,
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                        ),
+                      ],
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.grey.shade400,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -161,7 +125,12 @@ class configuracoes extends StatelessWidget {
                   height: 35,
                   width: 300,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => tela_login()),
+                      );
+                    },
                     child: Row(
                       children: [
                         Icon(
