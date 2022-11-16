@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:piattov2/cadastro_receita.dart';
 import 'package:piattov2/configuracao.dart';
 import 'package:piattov2/favorito.dart';
+import 'package:piattov2/tela_seleciona_ingredientes.dart';
 import 'package:piattov2/minhas_receitas.dart';
 import '../principal_pesquisa.dart';
 
@@ -16,6 +17,7 @@ class _MainPageState extends State<MainPage> {
     principalPesquisa(),
     favoritoPage(),
     cadastroReceita(),
+    seleciona_ingrediente(),
     minhasReceitas(),
     configuracoes(),
   ];

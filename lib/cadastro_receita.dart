@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:piattov2/Component/ButtonPages.dart';
 import 'package:piattov2/minhas_receitas.dart';
 import 'package:piattov2/tela_seleciona_ingredientes.dart';
 
@@ -138,7 +139,7 @@ class cadastroReceita extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => minhasReceitas()),
+                                    builder: (context) => MainPage()),
                               );
                             },
                             child: Text('Publicar Receita'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:piattov2/Component/ButtonPages.dart';
 import 'package:piattov2/cadastro_receita.dart';
 import 'package:flutter_multi_select_items/flutter_multi_select_items.dart';
 
@@ -25,7 +26,7 @@ class _selecionaIngrediente extends State<seleciona_ingrediente> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => cadastroReceita()),
+                  MaterialPageRoute(builder: (context) => MainPage()),
                 );
               }),
           backgroundColor: Colors.white,
