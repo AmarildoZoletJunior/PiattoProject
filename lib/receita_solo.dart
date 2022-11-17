@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:piattov2/Component/ButtonPages.dart';
 import 'package:piattov2/principal_pesquisa.dart';
 import 'model/ingrediente_model.dart';
 
@@ -20,7 +21,7 @@ class receitaSolo extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => principalPesquisa()),
+                MaterialPageRoute(builder: (context) => MainPage()),
               );
             },
           ),

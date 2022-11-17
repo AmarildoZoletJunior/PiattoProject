@@ -17,7 +17,6 @@ class _MainPageState extends State<MainPage> {
     principalPesquisa(),
     favoritoPage(),
     cadastroReceita(),
-    seleciona_ingrediente(),
     minhasReceitas(),
     configuracoes(),
   ];
