@@ -18,6 +18,8 @@ class _favoritoPageState extends State<favoritoPage> {
   ];
   List<ReceitaModel> display_list = List.from(receita_list);
 
+  Color _favIconColor = Colors.black;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,6 +84,21 @@ class _favoritoPageState extends State<favoritoPage> {
                         style: TextStyle(
                           color: Colors.black,
                         ),
+                      ),
+                      leading: IconButton(
+                        icon: Icon(
+                          Icons.favorite_border,
+                          color: _favIconColor,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            if(_favIconColor == Colors.black){
+                              _favIconColor = Colors.red;
+                            }else{
+                              _favIconColor = Colors.black;
+                            }
+                          });
+                        },
                       ),
                     ),
                   ),

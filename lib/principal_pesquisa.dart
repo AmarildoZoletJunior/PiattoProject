@@ -14,30 +14,6 @@ class _principalPesquisaState extends State<principalPesquisa> {
       'Arroz com Feijão',
       'Feijão',
     ),
-    ReceitaModel(
-      'Macarrão ao alho e óleo',
-      'Alho',
-    ),
-    ReceitaModel(
-      'Churrasco',
-      'Carne',
-    ),
-    ReceitaModel(
-      'Sopa',
-      'Batata',
-    ),
-    ReceitaModel(
-      'Bolo de cenoura',
-      'Cenoura',
-    ),
-    ReceitaModel(
-      'Bolo de cenoura',
-      'Cenoura',
-    ),
-    ReceitaModel(
-      'Bolo de cenoura',
-      'Cenoura',
-    ),
   ];
 
   List<ReceitaModel> display_list = List.from(receita_list);
@@ -51,6 +27,8 @@ class _principalPesquisaState extends State<principalPesquisa> {
           .toList();
     });
   }
+
+  Color _favIconColor = Colors.black;
 
   @override
   Widget build(BuildContext context) {
@@ -135,6 +113,21 @@ class _principalPesquisaState extends State<principalPesquisa> {
                         style: TextStyle(
                           color: Colors.black,
                         ),
+                      ),
+                      leading: IconButton(
+                        icon: Icon(
+                          Icons.favorite_border,
+                          color: _favIconColor,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            if(_favIconColor == Colors.black){
+                              _favIconColor = Colors.red;
+                            }else{
+                              _favIconColor = Colors.black;
+                            }
+                          });
+                        },
                       ),
                     ),
                   ),

@@ -76,6 +76,13 @@ class _minhasReceitasState extends State<minhasReceitas> {
                     color: Colors.black,
                   ),
                 ),
+                leading: IconButton(
+                  icon: Icon(
+                    Icons.edit,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {}
+                ),
               ),
             ),
           ),

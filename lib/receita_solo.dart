@@ -4,8 +4,15 @@ import 'package:piattov2/Component/ButtonPages.dart';
 import 'package:piattov2/principal_pesquisa.dart';
 import 'model/ingrediente_model.dart';
 
-class receitaSolo extends StatelessWidget {
+class receitaSolo extends StatefulWidget {
   const receitaSolo({Key? key}) : super(key: key);
+
+  @override
+  State<receitaSolo> createState() => _receitaSoloState();
+}
+
+class _receitaSoloState extends State<receitaSolo> {
+  Color _favIconColor = Colors.black;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +48,7 @@ class receitaSolo extends StatelessWidget {
             children: [
               Container(
                 margin: EdgeInsets.only(top: 100),
-                width: 250,
+                width: 300,
                 height: 400,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -61,27 +68,55 @@ class receitaSolo extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    Container(
-                      child: Text(
-                        "Arroz com Feijão",
-                        style: GoogleFonts.roboto(
-                          textStyle: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        Container(
+                          height: 35,
+                          width: 57,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.favorite_border,
+                              color: _favIconColor,
+                            ),
+                            onPressed: () {
+                              setState(
+                                    () {
+                                  if (_favIconColor == Colors.black) {
+                                    _favIconColor = Colors.red;
+                                  } else {
+                                    _favIconColor = Colors.black;
+                                  }
+                                },
+                              );
+                            },
                           ),
                         ),
-                      ),
+                        Container(
+                          child: Text(
+                            "Arroz com Feijão",
+                            style: GoogleFonts.roboto(
+                              textStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
-                      height: 5,
+                      height: 10,
                     ),
-                    Text(
-                      "Nível: Médio",
-                      style: TextStyle(fontSize: 14),
+                    Divider(
+                      color: Colors.black,
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 30,
                     ),
                     Text(
                       "Ingredientes",
@@ -98,13 +133,13 @@ class receitaSolo extends StatelessWidget {
                       style: TextStyle(fontSize: 14),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 30,
                     ),
                     Divider(
                       color: Colors.black,
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 30,
                     ),
                     Text(
                       "Modo de Preparo",
@@ -117,30 +152,15 @@ class receitaSolo extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 5,
+                      height: 20,
                     ),
                     Text(
                       "Pegar os ingredientes e blablablablabla...",
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 14),
                     ),
-                    Container(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      height: 35,
-                      width: 57,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.favorite_border_outlined,
-                            ),
-                          ],
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Color.fromARGB(0, 235, 128, 128),
-                        ),
-                      ),
+                    SizedBox(
+                      height: 20,
                     ),
                   ],
                 ),

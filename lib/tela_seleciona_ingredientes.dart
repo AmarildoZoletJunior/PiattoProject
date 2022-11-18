@@ -107,36 +107,6 @@ class _selecionaIngrediente extends State<seleciona_ingrediente> {
                                         value: 'Cenoura', label: 'Cenoura'),
                                     MultiSelectCard(
                                         value: 'Tomate', label: 'Tomate'),
-                                    MultiSelectCard(
-                                        value: 'Milho', label: 'Milho'),
-                                    MultiSelectCard(
-                                        value: 'Maionese', label: 'Maionese'),
-                                    MultiSelectCard(
-                                        value: 'Pepino', label: 'Pepino'),
-                                    MultiSelectCard(
-                                        value: 'Feijão', label: 'Feijão'),
-                                    MultiSelectCard(
-                                        value: 'Cenoura', label: 'Cenoura'),
-                                    MultiSelectCard(
-                                        value: 'Tomate', label: 'Tomate'),
-                                    MultiSelectCard(
-                                        value: 'Milho', label: 'Milho'),
-                                    MultiSelectCard(
-                                        value: 'Maionese', label: 'Maionese'),
-                                    MultiSelectCard(
-                                        value: 'Pepino', label: 'Pepino'),
-                                    MultiSelectCard(
-                                        value: 'Feijão', label: 'Feijão'),
-                                    MultiSelectCard(
-                                        value: 'Cenoura', label: 'Cenoura'),
-                                    MultiSelectCard(
-                                        value: 'Tomate', label: 'Tomate'),
-                                    MultiSelectCard(
-                                        value: 'Milho', label: 'Milho'),
-                                    MultiSelectCard(
-                                        value: 'Maionese', label: 'Maionese'),
-                                    MultiSelectCard(
-                                        value: 'Pepino', label: 'Pepino'),
                                   ],
                                   onChange:
                                       (allSelectedItems, selectedItem) {}),
