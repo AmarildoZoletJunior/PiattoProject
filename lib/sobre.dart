@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:piattov2/Component/ButtonPages.dart';
 import 'package:piattov2/configuracao.dart';
 
 class Sobre extends StatelessWidget {

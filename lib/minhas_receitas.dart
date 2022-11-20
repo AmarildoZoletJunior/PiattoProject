@@ -76,12 +76,20 @@ class _minhasReceitasState extends State<minhasReceitas> {
                     color: Colors.black,
                   ),
                 ),
-                leading: IconButton(
-                  icon: Icon(
-                    Icons.edit,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {}
+                trailing: Wrap(
+                  spacing: 15,
+                  children: <Widget>[
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.create_rounded),
+                      color: Colors.black,
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.delete_rounded),
+                      color: Colors.black,
+                    ),
+                  ],
                 ),
               ),
             ),

@@ -43,124 +43,171 @@ class _receitaSoloState extends State<receitaSolo> {
             ),
           ),
         ),
-        body: Center(
+        body: Padding(
+          padding: EdgeInsets.all(16),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                margin: EdgeInsets.only(top: 100),
-                width: 300,
-                height: 400,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: Offset(5, 5),
-                    ),
-                  ],
-                ),
+              Center(
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(width: 15,),
-                        Container(
-                          height: 35,
-                          width: 57,
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.favorite_border,
-                              color: _favIconColor,
-                            ),
-                            onPressed: () {
-                              setState(
-                                    () {
-                                  if (_favIconColor == Colors.black) {
-                                    _favIconColor = Colors.red;
-                                  } else {
-                                    _favIconColor = Colors.black;
-                                  }
-                                },
-                              );
-                            },
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            spreadRadius: 2,
+                            blurRadius: 4,
+                            offset: Offset(5, 5),
                           ),
-                        ),
-                        Container(
-                          child: Text(
-                            "Arroz com Feijão",
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Column(
+                            children: [
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Container(
+                                child: Text(
+                                  "Arroz com Feijão",
+                                  style: GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                height: 35,
+                                width: 57,
+                                child: IconButton(
+                                  icon: Icon(
+                                    Icons.favorite_border,
+                                    color: _favIconColor,
+                                  ),
+                                  onPressed: () {
+                                    setState(
+                                      () {
+                                        if (_favIconColor == Colors.black) {
+                                          _favIconColor = Colors.red;
+                                        } else {
+                                          _favIconColor = Colors.black;
+                                        }
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            "Ingredientes",
                             style: GoogleFonts.roboto(
                               textStyle: TextStyle(
                                 color: Colors.black,
-                                fontSize: 24,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Divider(
-                      color: Colors.black,
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Text(
-                      "Ingredientes",
-                      style: GoogleFonts.roboto(
-                        textStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                          Text(
+                            "....",
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: SizedBox(
+                                  height: 2,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                            colors: [
+                                          Colors.white,
+                                          Colors.black
+                                        ],
+                                            begin: Alignment.centerRight,
+                                            end: Alignment.centerLeft)),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 2),
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.restaurant),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                child: SizedBox(
+                                  height: 2,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                            colors: [
+                                          Colors.white,
+                                          Colors.black
+                                        ],
+                                            begin: Alignment.centerLeft,
+                                            end: Alignment.centerRight)),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            "Modo de Preparo",
+                            style: GoogleFonts.roboto(
+                              textStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Pegar os ingredientes e blablablablabla...",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                        ],
                       ),
-                    ),
-                    Text(
-                      "....",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Divider(
-                      color: Colors.black,
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Text(
-                      "Modo de Preparo",
-                      style: GoogleFonts.roboto(
-                        textStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      "Pegar os ingredientes e blablablablabla...",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    SizedBox(
-                      height: 20,
                     ),
                   ],
                 ),

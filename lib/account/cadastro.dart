@@ -19,6 +19,21 @@ class _tela_cadastroState extends State<tela_cadastro> {
     emailController.addListener(() => setState(() {}));
   }
 
+  late FocusNode focusNode1 = FocusNode()
+    ..addListener(() {
+      setState(() {});
+    });
+
+  late FocusNode focusNode2 = FocusNode()
+    ..addListener(() {
+      setState(() {});
+    });
+
+  late FocusNode focusNode3 = FocusNode()
+    ..addListener(() {
+      setState(() {});
+    });
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -51,20 +66,33 @@ class _tela_cadastroState extends State<tela_cadastro> {
                     Container(
                       margin: EdgeInsets.only(bottom: 20),
                       child: TextField(
+                        focusNode: focusNode1,
                         controller: emailController,
                         cursorColor: Colors.black,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           hintText: "name@example.com",
                           labelText: 'Email',
-                          prefixIcon: Icon(Icons.mail),
-                          border: OutlineInputBorder(),
+                          floatingLabelStyle: const TextStyle(
+                              color: Color.fromRGBO(200, 230, 201, 1)),
+                          prefixIcon: Icon(
+                            Icons.mail,
+                            color: focusNode1.hasFocus
+                                ? Color.fromRGBO(200, 230, 201, 1)
+                                : Colors.grey,
+                          ),
                           suffixIcon: emailController.text.isEmpty
                               ? Container(width: 0)
                               : IconButton(
                                   icon: Icon(Icons.close),
                                   onPressed: () => emailController.clear(),
                                 ),
+                          border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color.fromRGBO(200, 230, 201, 1),
+                            ),
+                          ),
                         ),
                         keyboardType: TextInputType.emailAddress,
                         textInputAction: TextInputAction.done,
@@ -73,19 +101,43 @@ class _tela_cadastroState extends State<tela_cadastro> {
                     Container(
                       margin: EdgeInsets.only(bottom: 20),
                       child: TextField(
+                        focusNode: focusNode2,
                         cursorColor: Colors.black,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           hintText: "******",
                           labelText: 'Senha',
+                          floatingLabelStyle: const TextStyle(
+                              color: Color.fromRGBO(200, 230, 201, 1)),
+                          prefixIcon: Icon(
+                            Icons.https,
+                            color: focusNode2.hasFocus
+                                ? Color.fromRGBO(200, 230, 201, 1)
+                                : Colors.grey,
+                          ),
                           suffixIcon: IconButton(
                             icon: isPasswordVisible
-                                ? Icon(Icons.visibility_off)
-                                : Icon(Icons.visibility),
+                                ? Icon(
+                                    Icons.visibility_off,
+                                    color: focusNode2.hasFocus
+                                        ? Color.fromRGBO(200, 230, 201, 1)
+                                        : Colors.grey,
+                                  )
+                                : Icon(
+                                    Icons.visibility,
+                                    color: focusNode2.hasFocus
+                                        ? Color.fromRGBO(200, 230, 201, 1)
+                                        : Colors.grey,
+                                  ),
                             onPressed: () => setState(
                                 () => isPasswordVisible = !isPasswordVisible),
                           ),
                           border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color.fromRGBO(200, 230, 201, 1),
+                            ),
+                          ),
                         ),
                         obscureText: isPasswordVisible,
                       ),
@@ -93,20 +145,43 @@ class _tela_cadastroState extends State<tela_cadastro> {
                     Container(
                       margin: EdgeInsets.only(bottom: 30),
                       child: TextField(
+                        focusNode: focusNode3,
                         cursorColor: Colors.black,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           hintText: "******",
                           labelText: 'Confirmar senha',
-                          prefixIcon: Icon(Icons.https),
+                          floatingLabelStyle: const TextStyle(
+                              color: Color.fromRGBO(200, 230, 201, 1)),
+                          prefixIcon: Icon(
+                            Icons.https,
+                            color: focusNode3.hasFocus
+                                ? Color.fromRGBO(200, 230, 201, 1)
+                                : Colors.grey,
+                          ),
                           suffixIcon: IconButton(
                             icon: isPasswordVisible
-                                ? Icon(Icons.visibility_off)
-                                : Icon(Icons.visibility),
+                                ? Icon(
+                                    Icons.visibility_off,
+                                    color: focusNode3.hasFocus
+                                        ? Color.fromRGBO(200, 230, 201, 1)
+                                        : Colors.grey,
+                                  )
+                                : Icon(
+                                    Icons.visibility,
+                                    color: focusNode3.hasFocus
+                                        ? Color.fromRGBO(200, 230, 201, 1)
+                                        : Colors.grey,
+                                  ),
                             onPressed: () => setState(
                                 () => isPasswordVisible = !isPasswordVisible),
                           ),
                           border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color.fromRGBO(200, 230, 201, 1),
+                            ),
+                          ),
                         ),
                         obscureText: isPasswordVisible,
                       ),

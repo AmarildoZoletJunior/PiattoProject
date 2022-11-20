@@ -37,7 +37,7 @@ class configuracoes extends StatelessWidget {
                     fit: StackFit.expand,
                     children: [
                       CircleAvatar(
-                        backgroundImage: AssetImage('Image/Planeta.png'),
+                        backgroundImage: AssetImage('Image/icon.png'),
                       ),
                       Positioned(
                         right: 0,
@@ -86,7 +86,7 @@ class configuracoes extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => receitaSolo()),
+                        MaterialPageRoute(builder: (context) => Sobre()),
                       );
                     },
                     child: Row(
