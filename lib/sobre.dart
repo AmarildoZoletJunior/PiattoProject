@@ -20,7 +20,7 @@ class Sobre extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => configuracoes()),
+                MaterialPageRoute(builder: (context) => MainPage()),
               );
             },
           ),
