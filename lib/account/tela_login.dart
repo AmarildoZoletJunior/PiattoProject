@@ -250,7 +250,7 @@ class _tela_loginState extends State<tela_login> {
 
 Future<int> login(String email, String senha) async{
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  var url = await Uri.parse("http://192.168.0.103:3000/usuario");
+  var url = await Uri.parse("http://10.197.9.53:3000/usuario");
   var resposta = await http.post(url,
     body: {
       "email": email,

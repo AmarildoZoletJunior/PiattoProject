@@ -17,7 +17,6 @@ class _MenuState extends State<Menu> {
       currentIndex: _opcaoSelecionada,
       onTap: (opcao) {
         print('clicou $opcao');
-
         setState(() {
           _opcaoSelecionada = opcao;
         });

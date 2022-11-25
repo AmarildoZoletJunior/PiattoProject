@@ -16,6 +16,8 @@ class _principalPesquisaState extends State<principalPesquisa> {
     ),
   ];
 
+  bool valor = true;
+
   List<ReceitaModel> display_list = List.from(receita_list);
 
   void updateList(String value) {
@@ -78,9 +80,9 @@ class _principalPesquisaState extends State<principalPesquisa> {
             Center(
               child: ToggleSwitch(
                 minWidth: 250,
-                minHeight: 60.0,
+                minHeight: 40.0,
                 fontSize: 16.0,
-                initialLabelIndex: 1,
+                initialLabelIndex: 0,
                 activeBgColor: [Colors.green.shade100],
                 activeFgColor: Colors.black,
                 inactiveBgColor: Colors.grey.shade200,
@@ -88,7 +90,11 @@ class _principalPesquisaState extends State<principalPesquisa> {
                 totalSwitches: 2,
                 labels: ['Contém', 'Exata'],
                 onToggle: (index) {
-                  print('switched to: $index');
+                  if (index == 1) {
+                    valor = false;
+                  } else {
+                    valor = true;
+                  };
                 },
               ),
             ),
@@ -141,9 +147,9 @@ class _principalPesquisaState extends State<principalPesquisa> {
                         ),
                         onPressed: () {
                           setState(() {
-                            if(_favIconColor == Colors.black){
+                            if (_favIconColor == Colors.black) {
                               _favIconColor = Colors.red;
-                            }else{
+                            } else {
                               _favIconColor = Colors.black;
                             }
                           });
