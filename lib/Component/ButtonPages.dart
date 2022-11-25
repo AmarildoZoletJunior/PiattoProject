@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:piattov2/cadastro_receita.dart';
 import 'package:piattov2/configuracao.dart';
 import 'package:piattov2/favorito.dart';
-import 'package:piattov2/tela_seleciona_ingredientes.dart';
 import 'package:piattov2/minhas_receitas.dart';
 import '../principal_pesquisa.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -12,6 +12,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+
+
   int index = 0;
   final screens = [
     principalPesquisa(),
@@ -20,6 +22,8 @@ class _MainPageState extends State<MainPage> {
     minhasReceitas(),
     configuracoes(),
   ];
+
+
 
   @override
   Widget build(BuildContext context) => Scaffold(

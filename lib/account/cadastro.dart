@@ -1,7 +1,7 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:piattov2/account/tela_login.dart';
-import 'package:email_validator/email_validator.dart';
 import "package:http/http.dart" as http;
 
 class tela_cadastro extends StatefulWidget {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:piattov2/Component/ButtonPages.dart';
 import 'package:piattov2/account/tela_login.dart';
+import 'package:piattov2/animation.dart';
+import 'package:piattov2/principal_pesquisa.dart';
 
 import 'account/tela_principal.dart';
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PIATTO',
-      home: Stela_principal(),
+      home: SplashScreen(),
     );
   }
 }
