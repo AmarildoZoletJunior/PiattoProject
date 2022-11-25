@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:toggle_switch/toggle_switch.dart';
 import 'model/ingrediente_model.dart';
 
 class principalPesquisa extends StatefulWidget {
@@ -70,6 +70,26 @@ class _principalPesquisaState extends State<principalPesquisa> {
                 hintText: 'Ingrediente',
                 prefixIcon: Icon(Icons.search),
                 prefixIconColor: Colors.black,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: ToggleSwitch(
+                minWidth: 250,
+                minHeight: 60.0,
+                fontSize: 16.0,
+                initialLabelIndex: 1,
+                activeBgColor: [Colors.green.shade100],
+                activeFgColor: Colors.black,
+                inactiveBgColor: Colors.grey.shade200,
+                inactiveFgColor: Colors.grey[900],
+                totalSwitches: 2,
+                labels: ['Contém', 'Exata'],
+                onToggle: (index) {
+                  print('switched to: $index');
+                },
               ),
             ),
             SizedBox(

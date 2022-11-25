@@ -127,22 +127,6 @@ class Sobre extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                 ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 150,
-                      width: 150,
-                      child: Stack(
-                        fit: StackFit.expand,
-                        children: [
-                          CircleAvatar(
-                            backgroundImage: AssetImage('Image/Planeta.png'),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
               ),
             ],
           ),
