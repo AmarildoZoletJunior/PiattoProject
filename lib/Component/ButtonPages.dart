@@ -59,7 +59,7 @@ class _MainPageState extends State<MainPage> {
               NavigationDestination(
                 icon: Icon(Icons.settings_outlined),
                 selectedIcon: Icon(Icons.settings),
-                label: 'Sobre',
+                label: 'Configurações',
               ),
             ],
           ),
