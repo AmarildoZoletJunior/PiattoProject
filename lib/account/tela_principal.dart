@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:piattov2/account/tela_login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../Component/ButtonPages.dart';
 import '../principal_pesquisa.dart';
 
 class Stela_principal extends StatefulWidget {
@@ -17,7 +18,7 @@ class tela_principal extends State<Stela_principal>{
     verificarToken().then((value) {
       if (value) {
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context)=> principalPesquisa()));
+            context, MaterialPageRoute(builder: (context)=> MainPage()));
       } else {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context)=> tela_login()));

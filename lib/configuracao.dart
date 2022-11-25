@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:piattov2/account/tela_login.dart';
 import 'package:piattov2/receita_solo.dart';
 import 'package:piattov2/sobre.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class configuracoes extends StatelessWidget {
   const configuracoes({Key? key}) : super(key: key);
@@ -125,7 +126,9 @@ class configuracoes extends StatelessWidget {
                   height: 35,
                   width: 300,
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
+                      SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+                      sharedPreferences.remove("id");
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => tela_login()),
