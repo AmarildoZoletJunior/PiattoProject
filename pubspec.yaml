@@ -29,6 +29,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  email_validator: ^2.0.1
+  http:
+  shared_preferences: ^2.0.6
   provider:
 
 

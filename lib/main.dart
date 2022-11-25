@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:piattov2/Component/ButtonPages.dart';
 import 'package:piattov2/account/tela_login.dart';
 
+import 'account/tela_principal.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PIATTO',
-      home: tela_login(),
+      home: Stela_principal(),
     );
   }
 }

@@ -1,7 +1,30 @@
 import "package:flutter/material.dart";
+import 'package:piattov2/account/tela_login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class tela_principal extends StatelessWidget {
-  const tela_principal({Key? key}) : super(key: key);
+import '../principal_pesquisa.dart';
+
+class Stela_principal extends StatefulWidget {
+  const Stela_principal({Key? key}) : super(key: key);
+
+
+  @override
+  tela_principal createState() => tela_principal();
+}
+class tela_principal extends State<Stela_principal>{
+  void initState() {
+    super.initState();
+    verificarToken().then((value) {
+      if (value) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context)=> principalPesquisa()));
+      } else {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context)=> tela_login()));
+      }
+    });
+  }
+  @override
 
   // This widget is the root of your application.
   @override
@@ -54,5 +77,14 @@ class tela_principal extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+Future<bool> verificarToken() async{
+  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  if(sharedPreferences.getInt("id") != null){
+    return true;
+  }else{
+    return false;
   }
 }
