@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_multi_select_items/flutter_multi_select_items.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:piattov2/resultado_pesquisa.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+import 'Component/ButtonPages.dart';
 import 'model/ingrediente_model.dart';
 
 class principalPesquisa extends StatefulWidget {
@@ -29,6 +32,9 @@ class _principalPesquisaState extends State<principalPesquisa> {
           .toList();
     });
   }
+
+  final List<Map> data = List.generate(
+      1, (index) => {'id': index, 'name': 'Item $index', 'isSelected': false});
 
   Color _favIconColor = Colors.black;
 
@@ -59,19 +65,82 @@ class _principalPesquisaState extends State<principalPesquisa> {
             SizedBox(
               height: 20,
             ),
-            TextField(
-              onChanged: (value) => updateList(value),
-              style: TextStyle(color: Colors.black),
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.green.shade100,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide.none,
+            Center(
+              child: Container(
+                decoration: BoxDecoration(color: Colors.transparent),
+                height: 150,
+                width: 450,
+                child: Scaffold(
+                  body: Container(
+                    decoration: BoxDecoration(color: Colors.transparent),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 40),
+                      child: SafeArea(
+                        child: ListView.builder(
+                          itemCount: data.length,
+                          itemBuilder: (BuildContext ctx, index) {
+                            return SizedBox(
+                              width: 10,
+                              height: 50,
+                              child: MultiSelectContainer(
+                                  itemsDecoration: MultiSelectDecorations(
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(colors: [
+                                          Colors.green.withOpacity(0.1),
+                                          Colors.yellow.withOpacity(0.1),
+                                        ]),
+                                        border: Border.all(
+                                            color: Colors.green[200]!),
+                                        borderRadius:
+                                        BorderRadius.circular(20)),
+                                    selectedDecoration: BoxDecoration(
+                                      gradient: const LinearGradient(
+                                        colors: [
+                                          Color.fromARGB(255, 230, 126, 126),
+                                          Color.fromARGB(255, 230, 126, 126)
+                                        ],
+                                      ),
+                                      border: Border.all(
+                                          color: Color.fromARGB(
+                                              255, 230, 126, 126)),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    disabledDecoration: BoxDecoration(
+                                      color: Colors.grey,
+                                      border:
+                                      Border.all(color: Colors.grey[500]!),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                  items: [
+                                    MultiSelectCard(
+                                        value: 'Feijão', label: 'Feijão'),
+                                    MultiSelectCard(
+                                        value: 'Cenoura', label: 'Cenoura'),
+                                    MultiSelectCard(
+                                        value: 'Tomate', label: 'Tomate'),
+                                    MultiSelectCard(
+                                        value: 'Milho', label: 'Milho'),
+                                    MultiSelectCard(
+                                        value: 'Maionese', label: 'Maionese'),
+                                    MultiSelectCard(
+                                        value: 'Pepino', label: 'Pepino'),
+                                    MultiSelectCard(
+                                        value: 'Feijão', label: 'Feijão'),
+                                    MultiSelectCard(
+                                        value: 'Cenoura', label: 'Cenoura'),
+                                    MultiSelectCard(
+                                        value: 'Tomate', label: 'Tomate'),
+                                  ],
+                                  onChange:
+                                      (allSelectedItems, selectedItem) {}),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-                hintText: 'Ingrediente',
-                prefixIcon: Icon(Icons.search),
-                prefixIconColor: Colors.black,
               ),
             ),
             SizedBox(
@@ -101,61 +170,26 @@ class _principalPesquisaState extends State<principalPesquisa> {
             SizedBox(
               height: 20,
             ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: receita_list.length,
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 250,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          spreadRadius: 2,
-                          blurRadius: 4,
-                          offset: Offset(5, 5),
-                        ),
-                      ],
+            Center(
+              child: Padding(
+                padding:
+                const EdgeInsets.only(top: 250, left: 8, right: 8),
+                child: Container(
+                  height: 50,
+                  width: 450,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          Colors.green.shade200),
                     ),
-                    child: ListTile(
-                      contentPadding: EdgeInsets.all(16),
-                      title: Text(
-                        display_list[index].receita_nome!,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      subtitle: Text(
-                        '${display_list[index].receita_ingredientes!}',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                      leading: IconButton(
-                        icon: Icon(
-                          Icons.favorite_border,
-                          color: _favIconColor,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            if (_favIconColor == Colors.black) {
-                              _favIconColor = Colors.red;
-                            } else {
-                              _favIconColor = Colors.black;
-                            }
-                          });
-                        },
-                      ),
-                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => resultadoPesquisa()),
+                      );
+                    },
+                    child: Text('Pesquisar Receitas'),
                   ),
                 ),
               ),
