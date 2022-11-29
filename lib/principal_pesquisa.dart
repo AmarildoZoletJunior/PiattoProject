@@ -20,7 +20,7 @@ class _principalPesquisaState extends State<principalPesquisa> {
   ];
 
   bool valor = true;
-
+var lista;
   List<ReceitaModel> display_list = List.from(receita_list);
 
   void updateList(String value) {
@@ -133,7 +133,9 @@ class _principalPesquisaState extends State<principalPesquisa> {
                                         value: 'Tomate', label: 'Tomate'),
                                   ],
                                   onChange:
-                                      (allSelectedItems, selectedItem) {}),
+                                      (allSelectedItems, selectedItem) {
+                                    lista = allSelectedItems;
+                                      }),
                             );
                           },
                         ),
@@ -183,11 +185,41 @@ class _principalPesquisaState extends State<principalPesquisa> {
                           Colors.green.shade200),
                     ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => resultadoPesquisa()),
-                      );
+                      if(lista == null){
+                        showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                            title: const Text('Selecione pelo menos 1 ingrediente'),
+                            content: const Text('Sua busca não é valida'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () => Navigator.pop(context, 'OK'),
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          ),
+                        );
+                      }else{
+                        var l = lista.join(",");
+                        if(l.toString().length <= 0){
+                          showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                              title: const Text('Selecione pelo menos 1 ingrediente'),
+                              content: const Text('Sua busca não é valida'),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context, 'OK'),
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            ),
+                          );
+                        }else{
+                          print(l);
+                        }
+
+                      }
                     },
                     child: Text('Pesquisar Receitas'),
                   ),
