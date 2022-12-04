@@ -33,7 +33,7 @@ class _receitaSoloState extends State<receitaSolo> {
             },
           ),
           title: Text(
-            'Sobre',
+            'Receita',
             style: GoogleFonts.italiana(
               textStyle: TextStyle(
                 color: Colors.black,
