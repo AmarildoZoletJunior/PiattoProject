@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:piattov2/Component/ButtonPages.dart';
-import 'package:piattov2/minhas_receitas.dart';
 import 'package:piattov2/tela_seleciona_ingredientes.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import "package:http/http.dart" as http;
 
 class cadastroReceita extends StatelessWidget {
   const cadastroReceita({Key? key}) : super(key: key);
