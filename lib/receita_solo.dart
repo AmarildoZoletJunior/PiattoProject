@@ -33,7 +33,7 @@ class _receitaSoloState extends State<receitaSolo> {
             },
           ),
           title: Text(
-            'Voltar',
+            'Sobre',
             style: GoogleFonts.italiana(
               textStyle: TextStyle(
                 color: Colors.black,
@@ -120,8 +120,26 @@ class _receitaSoloState extends State<receitaSolo> {
                           SizedBox(
                             height: 10,
                           ),
+                          Text(
+                            "Rendimento",
+                            style: GoogleFonts.roboto(
+                              textStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
                           SizedBox(
-                            height: 30,
+                            height: 5,
+                          ),
+                          Text(
+                            "10 porções",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          SizedBox(
+                            height: 20,
                           ),
                           Text(
                             "Ingredientes",
@@ -133,8 +151,12 @@ class _receitaSoloState extends State<receitaSolo> {
                               ),
                             ),
                           ),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Text(
-                            "....",
+                            "Arroz, Sal, Água, Feijão, Linguiça, Calabresa, ...",
+                            textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 14),
                           ),
                           SizedBox(
@@ -196,7 +218,7 @@ class _receitaSoloState extends State<receitaSolo> {
                             ),
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 5,
                           ),
                           Text(
                             "Pegar os ingredientes e blablablablabla...",
