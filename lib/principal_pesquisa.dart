@@ -40,6 +40,9 @@ var lista;
 
   @override
   Widget build(BuildContext context) {
+    void open(String l,bool f){
+      Navigator.of(context).push(MaterialPageRoute(builder:(context)=> resultadoPesquisa(text: l,decisao: f)));
+    }
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -114,7 +117,7 @@ var lista;
                                   ),
                                   items: [
                                     MultiSelectCard(
-                                        value: 'Feijão', label: 'Feijão'),
+                                        value: 1, label: 'Feijão'),
                                     MultiSelectCard(
                                         value: 'Cenoura', label: 'Cenoura'),
                                     MultiSelectCard(
@@ -216,9 +219,8 @@ var lista;
                             ),
                           );
                         }else{
-                          print(l);
+                          open(l,valor);
                         }
-
                       }
                     },
                     child: Text('Pesquisar Receitas'),

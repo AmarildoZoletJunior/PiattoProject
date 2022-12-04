@@ -3,8 +3,11 @@ import 'package:piattov2/Component/ButtonPages.dart';
 import 'package:piattov2/account/tela_login.dart';
 import 'package:piattov2/animation.dart';
 import 'package:piattov2/principal_pesquisa.dart';
+import 'package:piattov2/receita_solo.dart';
 
 import 'account/tela_principal.dart';
+import 'cadastro_receita.dart';
+import 'favorito.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PIATTO',
-      home: principalPesquisa(),
+      home: favoritoPage(),
     );
   }
 }

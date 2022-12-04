@@ -1,23 +1,34 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'model/ingrediente_model.dart';
+import "package:http/http.dart" as http;
+import 'package:piattov2/data/ReceitaLista.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class resultadoPesquisa extends StatefulWidget {
-  const resultadoPesquisa({Key? key}) : super(key: key);
+   String text;
+   bool decisao;
 
+   resultadoPesquisa({Key? key,required this.text,required this.decisao}) : super(key: key);
   @override
-  State<resultadoPesquisa> createState() => _resultadoPesquisaState();
+  State<resultadoPesquisa> createState() => _resultadoPesquisaState(text,decisao);
 }
 
 class _resultadoPesquisaState extends State<resultadoPesquisa> {
-  static List<ReceitaModel> receita_list = [
-    ReceitaModel(
-      'Arroz com Feijão',
-      'Feijão',
-    ),
-  ];
-  List<ReceitaModel> display_list = List.from(receita_list);
+  String texto;
+  bool deciso;
+
+  _resultadoPesquisaState(this.texto, this.deciso);
+
+  late Future<List<ReceitaLista>> receitas;
+
+  @override
+  void initState() {
+    super.initState();
+    receitas = pegarReceitas(texto, deciso);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,60 +50,105 @@ class _resultadoPesquisaState extends State<resultadoPesquisa> {
       body: Container(
         child: Padding(
           padding: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 20),
-          child: ListView.builder(
-            itemCount: receita_list.length,
-            itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: 250,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: Offset(5, 5),
-                    ),
-                  ],
-                ),
-                child: ListTile(
-                  contentPadding: EdgeInsets.all(16),
-                  title: Text(
-                    display_list[index].receita_nome!,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  subtitle: Text(
-                    '${display_list[index].receita_ingredientes!}',
-                    style: TextStyle(
-                      color: Colors.black,
-                    ),
-                  ),
-                  trailing: Wrap(
-                    spacing: 15,
-                    children: <Widget>[
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.remove_red_eye),
-                        color: Colors.black,
+          child: FutureBuilder<List<ReceitaLista>>(
+            future: receitas,
+            builder:(context,snapshot) {
+              if (snapshot.hasData) {
+                return ListView.builder(
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (context, index) {
+                    ReceitaLista receita = snapshot.data![index];
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: 250,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              spreadRadius: 2,
+                              blurRadius: 4,
+                              offset: Offset(5, 5),
+                            ),
+                          ],
+                        ),
+                        child: ListTile(
+                          contentPadding: EdgeInsets.all(16),
+                          title: Text(
+                            receita.nome!,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          subtitle: Text(
+                            "Rende para: ${receita.rendimento} pessoa(s)",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          trailing: Wrap(
+                            spacing: 15,
+                            children: <Widget>[
+                              IconButton(
+                                onPressed: () {
+                                  print(texto);
+                                },
+                                icon: Icon(Icons.remove_red_eye),
+                                color: Colors.black,
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+                    );
+                  }
+                );
+              } else if (snapshot.hasError) {
+                return Center(child: Text("Não foi encontrada nenhuma receita."));
+              }
+              return const CircularProgressIndicator();
+            }
           ),
         ),
       ),
     );
+
   }
+  Future<List<ReceitaLista>> pegarReceitas(String l, bool f) async {
+    String teste;
+    if(f == true){
+      teste = "true";
+    }else{
+      teste = "false";
+    }
+    var url = await Uri.parse("http://192.168.0.103:3000/receitas");
+    var resposta = await http.post(url,
+      body: {
+        "decisao": teste,
+        "id": l,
+      },
+    );
+     print(await resposta.statusCode);
+    if (resposta.statusCode == 200) {
+      List listaUsuarios = json.decode(resposta.body);
+      return listaUsuarios.map((json) => ReceitaLista.fromJson(json))
+          .toList();
+    }
+    throw Exception("Receitas não encontradas");
+  }
+
 }
+
+
+
+
+
