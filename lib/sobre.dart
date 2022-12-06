@@ -114,7 +114,7 @@ class Sobre extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "William Ronchi, Amarildo Junior, Nathalya Melchert, Vinicius da Cruz Muller, Alex Sander de Oliveira Barcelos",
+                      "Vinícius da Cruz Muller, Nathalya Melchert, William Ronchi, Amarildo Junior, e Alex Sander de Oliveira Barcelos",
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 15),
                     ),
@@ -122,10 +122,16 @@ class Sobre extends StatelessWidget {
                 ),
               ),
               Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                  color: Colors.white,
+                width: 280,
+                height: 280,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 280,
+                      width: 280,
+                      child: Image.asset('Image/grupo2.jpeg'),
+                    ),
+                  ],
                 ),
               ),
             ],
