@@ -8,6 +8,7 @@ import 'package:piattov2/receita_solo.dart';
 import 'account/tela_principal.dart';
 import 'cadastro_receita.dart';
 import 'favorito.dart';
+import 'minhas_receitas.dart';
 
 void main() {
   runApp(const MyApp());

@@ -109,23 +109,31 @@ class _favoritoPageState extends State<favoritoPage> {
                 color: _favIconColor,
               ),
               onPressed: () {
-                setState(() {
-                  if (_favIconColor == Colors.red) {
-                   var respostadeletar = deletarFavorito(receita.id!.toString());
-                   if(respostadeletar == 200){
-                     _favIconColor == Colors.black;
-                   }else if(respostadeletar == 400){
-                     _favIconColor = Colors.red;
-                   }
-                }else if(_favIconColor == Colors.black){
-                    var respostaadicionar = AdicionarFavoritos(receita.id!.toString());
-                    if(respostaadicionar == 201){
-                      _favIconColor == Colors.black;
-                    }else if(respostaadicionar == 400){
-                      _favIconColor = Colors.red;
-                    }
-                  }
-                });
+                showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text('Deseja excluir esta receita dos favoritos?'),
+                    content: const Text('Ela pode um dia fazer falta'),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'Cancelar'),
+                        child: const Text('Cancelar'),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          var resultado = deletarFavorito(receita.id.toString());
+                          Navigator.pop(context, 'Ok');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => favoritoPage()),
+                          );
+                        },
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  ),
+               );
               },
             ),
           ),
@@ -136,7 +144,7 @@ class _favoritoPageState extends State<favoritoPage> {
     } else if (snapshot.hasError) {
         return Center(child: Text("Não foi encontrada nenhuma receita nos favoritos."));
       }
-      return const CircularProgressIndicator();
+      return Center(child: const CircularProgressIndicator());
     }
               ),
             ),

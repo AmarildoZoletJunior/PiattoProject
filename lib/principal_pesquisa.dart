@@ -195,14 +195,6 @@ class _principalPesquisaState extends State<principalPesquisa> {
                                   ),
                                   items: [
                                     MultiSelectCard(
-<<<<<<< HEAD
-                                        value: 1, label: 'Feijão'),
-=======
-                                        value: 11, label: 'Carne Seca'),
-                                    MultiSelectCard(value: 12, label: 'Ovo'),
-                                    MultiSelectCard(value: 13, label: 'Milho'),
->>>>>>> 1f7a7655826ff5fff5d38cb15c8300c315d6cbd7
-                                    MultiSelectCard(
                                         value: 14, label: 'Farinha de Trigo'),
                                     MultiSelectCard(value: 15, label: 'Feijão'),
                                     MultiSelectCard(
@@ -378,13 +370,8 @@ class _principalPesquisaState extends State<principalPesquisa> {
                               ],
                             ),
                           );
-<<<<<<< HEAD
                         }else{
                           open(l,valor);
-=======
-                        } else {
-                          print(l);
->>>>>>> 1f7a7655826ff5fff5d38cb15c8300c315d6cbd7
                         }
                       }
                     },
