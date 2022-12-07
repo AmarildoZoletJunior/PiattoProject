@@ -4,6 +4,7 @@ import 'package:piattov2/account/tela_login.dart';
 import 'package:piattov2/animation.dart';
 import 'package:piattov2/principal_pesquisa.dart';
 import 'package:piattov2/receita_solo.dart';
+import 'package:piattov2/resultado_pesquisa.dart';
 import 'package:piattov2/sobre.dart';
 
 import 'account/tela_principal.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PIATTO',
-      home: receitaSolo(),
+      home: tela_login(),
     );
   }
 }

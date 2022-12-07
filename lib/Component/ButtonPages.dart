@@ -12,9 +12,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
-
   int index = 0;
+
   final screens = [
     principalPesquisa(),
     favoritoPage(),

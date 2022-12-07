@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import "package:http/http.dart" as http;
 import 'package:piattov2/data/ReceitaLista.dart';
+import 'package:piattov2/receita_solo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class resultadoPesquisa extends StatefulWidget {
@@ -54,6 +55,9 @@ class _resultadoPesquisaState extends State<resultadoPesquisa> {
             future: receitas,
             builder:(context,snapshot) {
               if (snapshot.hasData) {
+                if(snapshot.data!.length == 0){
+                  return Center(child: Text("Não foi encontrada nenhuma receita."));
+                }
                 return ListView.builder(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
@@ -100,7 +104,8 @@ class _resultadoPesquisaState extends State<resultadoPesquisa> {
                             children: <Widget>[
                               IconButton(
                                 onPressed: () {
-                                  print(texto);
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => receitaSolo(id: receita.id.toString())));
                                 },
                                 icon: Icon(Icons.remove_red_eye),
                                 color: Colors.black,
@@ -126,9 +131,9 @@ class _resultadoPesquisaState extends State<resultadoPesquisa> {
   Future<List<ReceitaLista>> pegarReceitas(String l, bool f) async {
     String teste;
     if(f == true){
-      teste = "true";
-    }else{
       teste = "false";
+    }else{
+      teste = "true";
     }
     var url = await Uri.parse("http://192.168.0.103:3000/receitas");
     var resposta = await http.post(url,
@@ -137,11 +142,14 @@ class _resultadoPesquisaState extends State<resultadoPesquisa> {
         "id": l,
       },
     );
+    print(l);
      print(await resposta.statusCode);
     if (resposta.statusCode == 200) {
       List listaUsuarios = json.decode(resposta.body);
+      print(listaUsuarios.length);
       return listaUsuarios.map((json) => ReceitaLista.fromJson(json))
           .toList();
+
     }
     throw Exception("Receitas não encontradas");
   }

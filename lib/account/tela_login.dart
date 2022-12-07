@@ -189,7 +189,7 @@ class _tela_loginState extends State<tela_login> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => principalPesquisa()),
+                                    builder: (context) => MainPage()),
                               );
                             }else if(status == 400){
                               showDialog<String>(
@@ -259,7 +259,8 @@ Future<int> login(String email, String senha) async{
   );
   print(resposta.statusCode);
   if(resposta.statusCode == 200){
-  await sharedPreferences.setInt("id", jsonDecode(resposta.body));
+  await sharedPreferences.setString("id", jsonDecode(resposta.body).toString());
+  print(sharedPreferences.getString("id").toString());
   }
   return resposta.statusCode;
 }

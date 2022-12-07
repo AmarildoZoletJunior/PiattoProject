@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import "package:http/http.dart" as http;
+import 'Component/ButtonPages.dart';
+import 'EditarReceita.dart';
 import 'data/ReceitaLista.dart';
 import 'model/ingrediente_model.dart';
 
 class minhasReceitas extends StatefulWidget {
+
   const minhasReceitas({Key? key}) : super(key: key);
 
   @override
@@ -95,7 +98,10 @@ class _minhasReceitasState extends State<minhasReceitas> {
     spacing: 15,
     children: <Widget>[
     IconButton(
-    onPressed: () {},
+    onPressed: () {
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => EditarReceita(idRec:receita.id.toString(),titul: receita.nome.toString(),rend: receita.rendimento.toString(), descri:receita.modoDePreparo.toString() ,)));
+    },
     icon: Icon(Icons.create_rounded),
     color: Colors.black,
     ),
@@ -113,13 +119,13 @@ class _minhasReceitasState extends State<minhasReceitas> {
     ),
     TextButton(
     onPressed: () {
-      var resultado = DeletarReceita(receita.id.toString());
       Navigator.pop(context, 'Ok');
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => minhasReceitas()),
-      );
+      var resultado = DeletarReceita(receita.id.toString());
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MainPage()),
+        );
     },
     child: const Text('OK'),
     ),
@@ -146,7 +152,8 @@ class _minhasReceitasState extends State<minhasReceitas> {
 }
 Future<List<ReceitaLista>> ListarReceitas() async{
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  var url = await Uri.parse("http://192.168.0.103:3000/receitasCriadas/1");
+  print(sharedPreferences.getString("id").toString());
+  var url = await Uri.parse("http://192.168.0.103:3000/receitasCriadas/" + sharedPreferences.getString("id").toString());
   var resposta = await http.get(url);
   if(resposta.statusCode == 200){
     print(resposta.statusCode);

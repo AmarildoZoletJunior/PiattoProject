@@ -129,232 +129,14 @@ class _principalPesquisaState extends State<principalPesquisa> {
                         setState(
                           () {
                             if (tempArray
-                                .contains(ingredientes[index].toString())) {
-                              tempArray.remove(ingredientes[index].toString());
+                                .contains(index.toString())) {
+                              tempArray.remove(index.toString());
                             } else {
-                              tempArray.add(ingredientes[index].toString());
+                              tempArray.add(index.toString());
                             }
                           },
-<<<<<<< HEAD
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Center(
-              child: Container(
-                height: 120,
-                width: 450,
-                child: Scaffold(
-                  body: Container(
-                    decoration: BoxDecoration(color: Colors.white),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 0),
-                      child: SafeArea(
-                        child: ListView.builder(
-                          itemCount: data.length,
-                          itemBuilder: (BuildContext ctx, index) {
-                            return SizedBox(
-                              width: 10,
-                              height: 10,
-                              child: MultiSelectContainer(
-                                  itemsDecoration: MultiSelectDecorations(
-                                    decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Colors.green.withOpacity(0.1),
-                                            Colors.yellow.withOpacity(0.1),
-                                          ],
-                                        ),
-                                        border: Border.all(
-                                            color: Colors.green[200]!),
-                                        borderRadius:
-                                        BorderRadius.circular(20)),
-                                    selectedDecoration: BoxDecoration(
-                                      gradient: const LinearGradient(
-                                        colors: [
-                                          Color.fromARGB(255, 230, 126, 126),
-                                          Color.fromARGB(255, 230, 126, 126)
-                                        ],
-                                      ),
-                                      border: Border.all(
-                                          color: Color.fromARGB(
-                                              255, 230, 126, 126)),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    disabledDecoration: BoxDecoration(
-                                      color: Colors.grey,
-                                      border:
-                                      Border.all(color: Colors.grey[500]!),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  items: [
-                                    MultiSelectCard(
-                                        value: 14, label: 'Farinha de Trigo'),
-                                    MultiSelectCard(value: 15, label: 'Feijão'),
-                                    MultiSelectCard(
-                                        value: 16, label: 'Molho de Tomate'),
-                                    MultiSelectCard(value: 18, label: 'Arroz'),
-                                    MultiSelectCard(
-                                        value: 19, label: 'Macarrão'),
-                                    MultiSelectCard(
-                                        value: 20, label: 'Carne de Boi'),
-                                    MultiSelectCard(
-                                        value: 21, label: 'Carne de Porco'),
-                                  ],
-                                  onChange: (allSelectedItems, selectedItem) {
-                                    lista = allSelectedItems;
-                                  }),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Center(
-              child: Container(
-                height: 100,
-                width: 450,
-                child: Scaffold(
-                  body: Container(
-                    decoration: BoxDecoration(color: Colors.white),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 0),
-                      child: SafeArea(
-                        child: ListView.builder(
-                          itemCount: data.length,
-                          itemBuilder: (BuildContext ctx, index) {
-                            return SizedBox(
-                              width: 10,
-                              height: 10,
-                              child: MultiSelectContainer(
-                                  itemsDecoration: MultiSelectDecorations(
-                                    decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Colors.green.withOpacity(0.1),
-                                            Colors.yellow.withOpacity(0.1),
-                                          ],
-                                        ),
-                                        border: Border.all(
-                                            color: Colors.green[200]!),
-                                        borderRadius:
-                                        BorderRadius.circular(20)),
-                                    selectedDecoration: BoxDecoration(
-                                      gradient: const LinearGradient(
-                                        colors: [
-                                          Color.fromARGB(255, 230, 126, 126),
-                                          Color.fromARGB(255, 230, 126, 126)
-                                        ],
-                                      ),
-                                      border: Border.all(
-                                          color: Color.fromARGB(
-                                              255, 230, 126, 126)),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    disabledDecoration: BoxDecoration(
-                                      color: Colors.grey,
-                                      border:
-                                      Border.all(color: Colors.grey[500]!),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  maxSelectableCount: 25,
-                                  items: [
-                                    MultiSelectCard(
-                                        value: 22, label: 'Carne de Frango'),
-                                    MultiSelectCard(value: 23, label: 'Açucar'),
-                                    MultiSelectCard(
-                                        value: 24, label: 'Baunilha'),
-                                    MultiSelectCard(value: 25, label: 'Canela'),
-                                    MultiSelectCard(value: 26, label: 'Cravo'),
-                                    MultiSelectCard(value: 27, label: 'Maçã'),
-                                    MultiSelectCard(value: 28, label: 'Aveia'),
-                                    MultiSelectCard(
-                                        value: 29, label: 'Amendoim'),
-                                    MultiSelectCard(
-                                        value: 30, label: 'Chocolate Branco'),
-                                    MultiSelectCard(
-                                        value: 31, label: 'Chocolate Preto'),
-                                    MultiSelectCard(value: 32, label: 'Cacau'),
-                                  ],
-                                  onChange: (allSelectedItems, selectedItem) {
-                                    lista = allSelectedItems;
-                                  }),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Center(
-              child: ToggleSwitch(
-                minWidth: 250,
-                minHeight: 40.0,
-                fontSize: 16.0,
-                initialLabelIndex: 0,
-                activeBgColor: [Colors.green.shade100],
-                activeFgColor: Colors.black,
-                inactiveBgColor: Colors.grey.shade200,
-                inactiveFgColor: Colors.grey[900],
-                totalSwitches: 2,
-                labels: ['Contém', 'Exata'],
-                onToggle: (index) {
-                  if (index == 1) {
-                    valor = false;
-                  } else {
-                    valor = true;
-                  }
-                  ;
-                },
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 120, left: 8, right: 8),
-                child: Container(
-                  height: 50,
-                  width: 450,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.green.shade200),
-                    ),
-                    onPressed: () {
-                      if (lista == null) {
-                        showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) => AlertDialog(
-                            title: const Text(
-                                'Selecione pelo menos 1 ingrediente'),
-                            content: const Text('Sua busca não é valida'),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () => Navigator.pop(context, 'OK'),
-                                child: const Text('OK'),
-                              ),
-                            ],
-                          ),
-=======
->>>>>>> e355e37c5e6192b2efffa64ddef8d20675d21c34
                         );
-                        print('mvalue');
-                        print(tempArray.toString());
+                        lista = tempArray;
                       },
                       child: Card(
                         child: ListTile(
@@ -364,7 +146,7 @@ class _principalPesquisaState extends State<principalPesquisa> {
                             width: 80,
                             decoration: BoxDecoration(
                               color: tempArray
-                                      .contains(ingredientes[index].toString())
+                                      .contains(index.toString())
                                   ? Colors.red
                                   : Colors.green.shade200,
                               borderRadius: BorderRadius.circular(10),
@@ -372,7 +154,7 @@ class _principalPesquisaState extends State<principalPesquisa> {
                             child: Center(
                               child: Text(
                                 tempArray.contains(
-                                        ingredientes[index].toString())
+                                        index.toString())
                                     ? 'Remover'
                                     : 'Selecionar',
                                 style: TextStyle(fontSize: 12),
@@ -442,36 +224,28 @@ class _principalPesquisaState extends State<principalPesquisa> {
                               ],
                             ),
                           );
-<<<<<<< HEAD
                         }else{
-                          open(l,valor);
-=======
-                        } else {
-                          var l = lista.join(",");
-                          if (l.toString().length <= 0) {
+                          if(lista.length <= 0){
                             showDialog<String>(
                               context: context,
                               builder: (BuildContext context) => AlertDialog(
                                 title: const Text(
                                     'Selecione pelo menos um ingrediente',
                                     style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
+                                    TextStyle(fontWeight: FontWeight.bold)),
                                 content: const Text('Sua busca não é valida!'),
                                 actions: <Widget>[
                                   TextButton(
-                                    onPressed: () {},
-                                    style: TextButton.styleFrom(
-                                      primary: Colors.green.shade200,
-                                    ),
+                                    onPressed: () => Navigator.pop(context, 'OK'),
                                     child: const Text('OK'),
                                   ),
                                 ],
                               ),
                             );
-                          } else {
-                            open(l, valor);
+                          }else{
+                            //print(lista.toString());
+                            open(lista.join(",").toString(),valor);
                           }
->>>>>>> e355e37c5e6192b2efffa64ddef8d20675d21c34
                         }
                       },
                       child: Text('Pesquisar Receitas'),

@@ -227,8 +227,6 @@ final senha = TextEditingController();
                   child: ElevatedButton(
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-
-
                          int status = await login(email.value.text,senha.value.text,confirmarsenha.value.text);
                         if(status == 200){
                           login(email.value.text,senha.value.text,confirmarsenha.value.text);
