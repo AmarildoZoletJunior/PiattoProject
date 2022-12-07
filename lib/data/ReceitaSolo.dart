@@ -3,14 +3,21 @@ class ReceitaSolo {
   String? ingredientes;
   String? rendimento;
   String? descricao;
+  int? receitaId;
 
-  ReceitaSolo({this.nome, this.ingredientes, this.rendimento, this.descricao});
+  ReceitaSolo(
+      {this.nome,
+        this.ingredientes,
+        this.rendimento,
+        this.descricao,
+        this.receitaId});
 
   ReceitaSolo.fromJson(Map<String, dynamic> json) {
     nome = json['nome'];
     ingredientes = json['ingredientes'];
     rendimento = json['rendimento'];
     descricao = json['descricao'];
+    receitaId = json['ReceitaId'];
   }
 
   Map<String, dynamic> toJson() {
@@ -19,6 +26,7 @@ class ReceitaSolo {
     data['ingredientes'] = this.ingredientes;
     data['rendimento'] = this.rendimento;
     data['descricao'] = this.descricao;
+    data['ReceitaId'] = this.receitaId;
     return data;
   }
 }

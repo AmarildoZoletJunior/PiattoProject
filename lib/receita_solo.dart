@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:piattov2/Component/ButtonPages.dart';
 import 'package:piattov2/principal_pesquisa.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'data/ReceitaSolo.dart';
 import "package:http/http.dart" as http;
 import 'model/ingrediente_model.dart';
@@ -127,8 +128,10 @@ class _receitaSoloState extends State<receitaSolo> {
                                       setState(
                                         () {
                                           if (_favIconColor == Colors.black) {
+                                            AdicionarFavoritos(snapshot.data!.receitaId.toString());
                                             _favIconColor = Colors.red;
                                           } else {
+                                            deletarFavorito(snapshot.data!.receitaId.toString());
                                             _favIconColor = Colors.black;
                                           }
                                         },
@@ -275,5 +278,28 @@ class _receitaSoloState extends State<receitaSolo> {
       return ReceitaSolo.fromJson(listaUsuarios);
     }
     throw Exception("Receitas não encontradas");
+  }
+  Future<int> deletarFavorito(String id) async{
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    var url = await Uri.parse("http://192.168.0.103:3000/favoritos/"  + sharedPreferences.getString("id").toString());
+    var resposta = await http.delete(url,
+      body: {
+        "id": id,
+      },
+    );
+    print(resposta.statusCode);
+    return resposta.statusCode;
+  }
+
+  Future<int> AdicionarFavoritos(String id) async{
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    var url = await Uri.parse("http://192.168.0.103:3000/favoritos/" + sharedPreferences.getString("id").toString());
+    var resposta = await http.post(url,
+      body: {
+        "id": id,
+      },
+    );
+    print(resposta.statusCode);
+    return resposta.statusCode;
   }
 }
